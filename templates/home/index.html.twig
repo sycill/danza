@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ton école de danse |
+	{{site_name}}
+{% endblock %}
+{% block body %}
+	{# {% if app.user %} #}
+	{% if is_granted('ROLE_USER')%}
+		{# {% if is_granted('IS_AUTHENTICATED_FULLY') %} #}
+		<h2>Hello
+			{{ app.user.username}}
+			!</h2>
+	{% endif %}
+	<body>
+		<h1>Danza, ton école de danse</h1>
+		<section id="img-prin">
+			<div class="img-presentation">
+				<img src="{{ asset('build/img/slider1.jpg') }}" alt="Image de présentation du site">
+			</div>
+		</section>
+		<section id="presentation">
+			<article class="card">
+				<h2>Profs internationaux</h2>
+				<img src="{{ asset('build/img/prof1.jpg') }}" alt="Images de la carte">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, cumque repellat facilis deleniti, saepe fugit laudantium voluptatum commodi, provident esse mollitia ad iste ab. Excepturi voluptates blanditiis illo vero earum quas quae sequi magnam tenetur?</p>
+			</article>
+			<article class="card">
+				<h2>Cours tous niveaux</h2>
+				<img src="{{ asset('build/img/stage.jpg') }}" alt="Images de la carte">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem amet a accusantium saepe obcaecati consequatur? Molestiae, consequatur repellat impedit cum illum rem quos alias dicta et ut a id beatae ad tempore, inventore numquam.</p>
+			</article>
+			<article class="card">
+				<h2>Blog</h2>
+				<img src="{{ asset('build/img/intensive.jpg') }}" alt="Images de la carte">
+				<p>Venez participer aux stages de nos professeurs pour vous perfectionner, peut-être découvrir de nouvelles techniques et vous faire de nouveaux amis?
+				</p>
+			</article>
+		</body>
+	</body>
+</section>
+<section id="services">
+	<div class="card">
+		<img src="{{asset('build/img/dance_class.webp')}}" alt="image du cours">
+		<h2>Cours</h2>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut sint, nulla earum officia odit voluptate possimus voluptatibus dolorem nostrum sunt, sequi architecto. Vero, optio quas!</p>
+		<a href="{{path('lessons_index')}}" class="btn">Découvrir</a>
+	</div>
+	<div class="card">
+		<img src="{{ asset('build/img/cours_hip_hop.webp')}}" alt="image du stage">
+		<h2>Blog</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam odit quisquam, nobis aperiam id repellat. Id illum molestiae quasi nostrum commodi porro repellat, distinctio ad?</p>
+		<a href="{{path('app_article')}}" class="btn">Découvrir</a>
+	</div>
+</section>
+<section id="spotlight">
+	<div class="exclu">
+		<img src="{{ asset("build/img/prof2.jpg") }}" alt="">
+	</div>
+	<div class="exclu">
+		<h2>Spotlight</h2>
+		<p>En exclusivité ce mois-ci:</p>
+		<p>John Lambert, le popping master</p>
+		<p>est de retour en France pour un</p>
+		<p>stage de folie!</p>
+		<p>Date: 26 mars 2022</p>
+		<p>Niveau intermédiaire/avancé</p>
+		<a href="#" class="btn">Réserver</a>
+	</div>
+</section>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script></body>{% endblock %}

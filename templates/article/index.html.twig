@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Blog
+	{{site_name}}
+{% endblock %}
+
+{% block body %}
+	<h1>Nos articles les plus récents:</h1>
+
+	<div>
+		<h2>Catégories :</h2>
+		<p>Si vous vous sentez d'humeur aventurière :</p>
+		{% for article in articles %}
+			{% for category in article.categories %}
+				<a href="{{ path('article_categories', {id: category.id})}}">#
+					{{ category.title }}</a>
+			{% endfor %}
+		{% endfor %}
+		{% for article in articles %}
+			<div class="container">
+				<div class="grid">
+					<div class="card">
+						<div class="card-img">
+							<img src="" alt="">
+						</div>
+						<div class="card-body">
+							<h2 class="card-title">{{ article.title }}</h2>
+							<p>{{ article.description|striptags|slice(0,100)~ '...'}}</p>
+							<a href="{{path('teacher', {id: article.id})}}" class="btn">Lire la suite</a>
+							<p>by</p>
+							<a href="{{ path('teacher', { id: article.user.id })}}">{{ article.user.username }}</a>
+							<p>Publié le
+								{{ article.date|format_datetime('long', 'none', locale='fr')}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	{# <img src="{{ asset('public/build/uploads/')}}{{ article.image }}" alt="{{ article.title }}"/> #}
+
+{% endblock %}

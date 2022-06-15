@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	A Propos |
+	{{ site_name }}
+{% endblock %}
+
+{% block body %}
+	<article id="about">
+		<div class="directrice">
+			<div class="vittoria">
+				<img src="{{ asset('build/img/vittoria.jpg')}}" alt="Vittoria Mansini, directrice de l'école Danza"/>
+				<div>
+					<h2>Notre directrice</h2>
+					<p>En 1990, Vittoria Mansini a créé Danza, son école de danse, loin de sa Naples natale.
+																																																																																																																																																																																																																																																																																																																																														Elle y enseigne la danse classique et les claquettes en tant que professeure et gère son affaire d'une main de maître.
+																																																																																																																																																																																																																																																																																																																																															Ces dernières années, elle a laissé le flambeau à des jeunes hommes et femmes talentueux qui ont la même passion
+																																																																																																																																																																																																																																																																																																																																														et envie de transmettre. Bien que Vittoria n'enseigne plus, on peut toujours la croisée dans un couloir, en train de
+																																																																																																																																																																																																																																																																																																																																														parler à ses élèves.
+					</p>
+				</div>
+			</div>
+		</div>
+	</article>
+	<h2>Nos professeurs</h2>
+	<article
+		id="teachers">
+		{# <div class="container"> #}
+		{% for teacher in teachers %}
+			{# <div class="grid"> #}
+			<div class="cards">
+				<div class="cards-img">
+					<img src="" alt="Photo de {{ teacher.username }}">
+				</div>
+				<div class="cards-body">
+					<h2 class="cards-title">{{ teacher.firstname }}
+						{{teacher.lastname}}</h2>
+					{# <h3>{{teacher.lesson.title}}</h3> #}
+					<a href="{{path('app_about', {id: teacher.id})}}">
+						<i class="fas fa-user"></i>
+					</a>
+				</div>
+			</div>
+			{# </div> #}
+		{% endfor %}
+		{# </div> #}
+
+	</article>
+{% endblock %}

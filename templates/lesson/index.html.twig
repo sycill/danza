@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Les cours à la carte
+{% endblock %}
+
+{% block body %}
+	<h1>Les cours à la carte</h1>
+	<article id="alacarte">
+		<div class="container">
+			<h2>Tous nos cours sont au même prix.
+			</h2>
+			<p>Tous. On veut que la danse touche le plus de monde possible. Tous les niveaux.</p>
+			<p>Les bouts de choux, comme les plus expérimentés. Débutants comme confirmés.
+			</p>
+			<p>Ce n'est pas une vague promesse commerciale. Notre devise est la suivante : la danse</p>
+			<p>c'est l'essence de la vie.
+			</p>
+			<p>On t'a convaincu ? Choisis un cours :)
+			</p>
+		</div>
+	</article>
+	<article
+		id="lessons">
+		{# {% for lesson in lessons %} #}
+		{% for lesson in lessons%}
+			<div class="cardz">
+				<div class="img-container">
+					<img
+					src="" alt="Image de la leçon" />
+				</div>
+				<div class="content">
+					<h3>
+						Prof :
+						{{ lesson.user.username }}</h3>
+					<p>Tous niveaux</p>
+					<p>Prix :
+						{{ lesson.price }}</p>
+					<p>
+						<strong>Description :
+						</strong>
+					</p>
+					<p>
+						{{ lesson.description|striptags}}
+					</p>
+				</div>
+
+				<a href="{{path('lessons_details', {id: lesson.id})}}" class="btn">Découvrir</a>
+			</div>
+		{% endfor %}
+	</article>
+{% endblock %}

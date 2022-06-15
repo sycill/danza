@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	|
+	{{ site_name }}
+{% endblock %}
+
+{% block body %}
+
+	<h2>S'enregistrer</h2>
+	<section id="form">
+		{{form_start(form)}}
+		{{form_rest(form)}}
+		{{form_end(form)}}
+	</section>
+{% endblock %}

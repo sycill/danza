@@ -1,0 +1,50 @@
+#form {
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid lightgray;
+    // box-shadow: 2px 3px 3px 1px lightgrey;
+    // width: 45%;
+    margin: auto;
+    padding: 2rem;
+    justify-content: center;
+
+    label {
+        display: block;
+        margin-right: 5px;
+        text-transform: uppercase;
+    }
+
+    input {
+        width: 400px;
+        border-radius: 6px;
+        height: 1.75rem;
+    }
+}
+
+// Login Form
+#login {
+    margin-bottom: 2rem;
+    color: $dark;
+    text-transform: uppercase;
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: auto;
+        label {
+            margin-bottom: 0.5rem;
+            &:last-child {
+                margin-bottom: 2rem;
+            }
+        }
+        input:not(:last-child) {
+            height: 1.75rem;
+            border-radius: $bo-radius;
+            margin-bottom: 0.5rem;
+        }
+        button {
+            width: 200px;
+            margin: auto;
+        }
+    }
+}

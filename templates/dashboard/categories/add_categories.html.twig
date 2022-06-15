@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Créer une catégorie</h1>
+	<div class="categoryForm">
+		{{form_start(categoryForm)}}
+		{{form_rest(categoryForm)}}
+		{{form_end(categoryForm)}}
+	</div>
+{% endblock %}

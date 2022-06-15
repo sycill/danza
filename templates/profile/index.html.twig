@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	|
+	{{ site_name }}
+{% endblock %}
+{% block body %}
+	<a href="{{ path('app_logout') }}">Se déconnecter</a>
+	<h1>PAGE DE PROFIL</h1>
+	<h2>Hello
+		{{ app.user.username }}!</h2>
+	<article class="lessons">
+		<div class="container">
+			<h3>Vos derniers cours :</h3>
+			{% for lesson in user.lessons %}
+				{% if lesson %}
+					<h4>
+						<strong>Quoi ?</strong>
+						{{ lesson }}
+					</h4>
+					<p>
+						<strong>Quand ?</strong>
+						{{ lesson.date | date('d-m-Y')}}</p>
+
+				{% else %}
+					<h2>Tu n'as pas encore réservé de cours</h2>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</article>
+{% endblock %}

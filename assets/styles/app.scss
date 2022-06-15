@@ -1,0 +1,27 @@
+@import "scss/abstracts/_variables.scss";
+@import "scss/abstracts/_fonts.scss";
+@import "scss/layouts/_base.scss";
+@import "scss/layouts/_header.scss";
+@import "scss/components/_forms.scss";
+@import "scss/components/_buttons.scss";
+@import "scss/components/_swiper.scss";
+@import "scss/components/card.scss";
+@import "scss/layouts/_footer.scss";
+@import "scss/pages/create_article.scss";
+@import "scss/pages/_home.scss";
+@import "scss/pages/_about.scss";
+@import "scss/pages/_profile.scss";
+@import "scss/pages/_booking.scss";
+@import "scss/pages/_blog.scss";
+@import "scss/pages/_contact.scss";
+@import "scss/pages/_lessons.scss";
+@import "scss/pages/dashboard.scss";
+
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

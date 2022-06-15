@@ -1,0 +1,22 @@
+.card{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: $ma-top;
+    border: 1px solid darkgrey;
+    box-shadow: $bo-shadow;
+    padding: 2rem 1.5rem;
+    border-radius: $bo-radius;
+    line-height: 1.75;
+    &:hover{
+        transition: ease-in-out 0.3s;
+    }
+    a{
+        font-family: "Poppins Regular";
+        font-weight: 700;
+        &:hover{
+            color: $accent;
+            cursor: pointer;
+        }
+    }
+}

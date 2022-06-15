@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="{{ asset('build/app.css') }}" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="icon" class="icon" href="{{ asset('build/img/favicon.png') }}"/>
+		<meta name="description" content="Si tu rêves d'une école de danse avec des profs de renom et d'un dance crew passionné et bienveillant, tu es à la bonne adresse">
+		<title>
+			{% block title %}Welcome!
+				{{site_name}}
+			{% endblock %}
+		</title>
+	</head>
+	<body>
+		{{ include("_header.html.twig") }}
+		{% block body %}{% endblock %}
+		<div class="top-arrow">
+			<a href="#img-prin">
+				<i class="fas fa-arrow-circle-up"></i>
+			</a>
+		</div>
+
+		{{ include("_footer.html.twig") }}
+		<script src="{{ asset('build/app.js') }}"></script>
+	</body>
+</html>

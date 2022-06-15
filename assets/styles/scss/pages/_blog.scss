@@ -1,0 +1,47 @@
+body{
+#articles {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0 -1.5rem;
+    // margin-block: 2rem;
+    // margin-inline: auto;
+    // flex-wrap: wrap;
+    // align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 2rem;
+    overflow: hidden;
+    flex-basis: 50%;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border: 1px solid $light;
+        border-radius: 5px;
+        box-shadow: 2px 3px 3px 1px lightgrey;
+        // padding: 0 2rem;
+        width: 25%;
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+        padding-bottom: 3rem;    
+        position: relative;
+        flex-grow: 1;
+        .btn{
+            margin: auto;
+        }
+    }
+}
+
+#show-art {
+    padding: 0 20%;
+    text-align: center;
+    img {
+        text-align: center;
+    }
+}
+#text{
+    text-align: justify;
+}
+}

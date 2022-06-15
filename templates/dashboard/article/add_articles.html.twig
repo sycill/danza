@@ -1,0 +1,19 @@
+{% extends 'base.html.twig'%}
+{% block body %}
+	{# <aside class="sidebar"></aside> #}
+	<h3>Salut
+		{{ app.user.username}}
+		!</h3>
+	<a href="{{ path('app_logout')}}">Se déconnecter</a>
+	<article id="dashboard">
+		<h2>
+			Créer un article</h2>
+		<div class="article">
+			<div class="article-form">
+				{{form_start(articleForm)}}
+				{{form_rest(articleForm)}}
+				{{form_end(articleForm)}}
+			</div>
+		</div>
+	</article>
+{% endblock  %}

@@ -1,0 +1,19 @@
+.btn,
+button {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.45rem 2.5rem;
+    border: 1px solid $accent;
+    background-color: $accent;
+    color: white;
+    border-radius: 7px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: 250ms ease-in-out, transform 150ms ease;
+
+    &:hover,
+    &:focus {
+        background-color: #df3448;
+    }
+}

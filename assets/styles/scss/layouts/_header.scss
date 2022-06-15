@@ -1,0 +1,116 @@
+.m-header {
+    background-color: $light;
+}
+
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 969px) {
+        justify-content: flex-start;
+    }
+
+    // @media screen and (max-width: 768px) {
+    //     #main-header .navbar,
+    //     #main-header a.nav-links,
+    //     i {
+    //         flex-direction: row;
+    //     }
+    //     #main-header .navbar {
+    //         justify-content: center;
+    //     }
+    //     #main-header a.nav-links {
+    //         gap: 2rem;
+    //     }
+    // }
+
+    .navbar {
+        margin-right: 3rem;
+
+        @media screen and (max-width: 969px) {
+            display: none;
+            // flex-direction: column;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 1.25rem;
+
+            li {
+                a.nav-links {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    display: inline;
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    color: $dark;
+
+                    &:hover {
+                        color: $accent;
+                    }
+                }
+
+            }
+
+            i {
+                padding: 0;
+                font-size: 35px;
+                color: $dark;
+                cursor: pointer;
+            }
+        }
+    }
+
+    #menu.toggle {
+        @media screen and (max-width: 969px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-left: auto;
+            padding-top: 1rem;
+            padding-right: 3rem;
+            cursor: pointer;
+        }
+
+        i {
+            @media screen and (max-width: 969px) {
+                display: block;
+                position: relative;
+                top: -10px;
+                font-size: 2rem;
+                margin: 5px;
+            }
+        }
+
+        .open {
+            display: block;
+        }
+
+        .close {
+            display: none;
+        }
+
+        .ouvrir .open {
+            display: none;
+        }
+
+        .fermer .close {
+            display: block;
+        }
+
+    }
+
+    // #signin-modal {
+    //     // visibility: visible;
+    //     position: absolute;
+    //     background-color: darkgrey;
+    //     opacity: 0;
+    //     transition: opacity 0.3s, visibility 0.3s;
+    //     &.is_visible {
+    //         visibility: visible;
+    //         opacity: 1;
+    //     }
+    // }
+}
