@@ -13,7 +13,7 @@
 				{{ articles.title }}
 			</h2>
 			<img
-			src="{{ articles.image }}" alt="{{ articles.title }}">
+			src="{{ asset('article_images/') }}{{ articles.imageName }}" alt="{{ articles.imageName }}">
 		</div>
 	</section>
 {% endblock %}

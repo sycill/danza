@@ -2,12 +2,17 @@ vich_uploader:
   db_driver: orm
 
   mappings:
-    uploaded_image:
+    uploaded_images:
       #nom du mapping
       uri_prefix:
-        '/img/uploaded_images'
+        '/uploaded_images'
         #Je récupère le chemin du dossier dans lequel je vais stocker les images à téléverser
-      upload_destination: '%kernel.project_dir%/public/build/img%uploaded_images%'
+      upload_destination: '%kernel.project_dir%/public/%uploaded_images%'
+
+      inject_on_load: false
+      delete_on_update: true
+      delete_on_remove: true
+      
       namer:
         Vich\UploaderBundle\Naming\SmartUniqueNamer
         # SmartUniqueNamer va rajouter des éléments au nom du fichier pour éviter de créer des doublons

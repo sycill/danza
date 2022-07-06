@@ -51,18 +51,6 @@ class Article
      */
     private $categories;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     */
-
-    private $image;
-
-    /**
-     * @Vich\UploadableField(mapping="uploaded_images", fileNameProperty="image")
-     * @var File
-     */
-    private $imageFile;
-    // On doit ajouter une prop pour stocker le fichier. 
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable="true")
@@ -74,9 +62,22 @@ class Article
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageName;
+
+    /**
+     * @Vich\UploadableField(mapping="uploaded_images", fileNameProperty="imageName")
+     * *
+     * @var File|null
+     */
+    private $imageFile;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->updatedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -168,36 +169,6 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getimageFile()
-    {
-        return $this->imageFile;
-    }
-    public function setImageFile(File $imageFile = null)
-    {
-        $this->imageFile = $imageFile;
-
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-        if ($imageFile) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->date = new \DateTime('now');
-        }
-    }
-
-
     /**
      * @ORM\PreUpdate
      */
@@ -228,5 +199,39 @@ class Article
         $this->user = $user;
 
         return $this;
+    }
+
+
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 }

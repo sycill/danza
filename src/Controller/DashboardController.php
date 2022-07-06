@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
-
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class DashboardController extends AbstractController
 {
@@ -61,9 +61,9 @@ class DashboardController extends AbstractController
         return $this->render('super_admin/super_admin.html.twig', ['teacherForm' => $teacherForm->createView()]);
     }
 
-    #[Route('/admin/add_article', name: 'create_article')]
+    #[Route('/admin/create_article', name: 'create_article')]
 
-    public function addArticle(Request $request, EntityManagerInterface $em)
+    public function createArticle(Request $request, EntityManagerInterface $em)
     {
         $article = new Article();
         // On crée un nouvel article qu'on récupère depuis use App\Entity\Article;
@@ -73,6 +73,13 @@ class DashboardController extends AbstractController
         // on va lui spécifier de la data qui est l'objet article qui est vide à ce stade.
         $articleForm->handleRequest($request);
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
+            $picture = $articleForm->get('imageName')->getData();
+            $folder = $this->getParameter('profile.folder');
+            $extension = $picture->guessExtension() ?? '.bin';
+            $filename = bin2hex(random_bytes(10) . '.' . $extension);
+            $picture->move($folder, $filename);
+            $article->setImageName($filename);
+            // Génère une chaîne de caractères aléatoire et unique.
             $article->setDate(new \DateTime());
             $em->persist($article);
             $em->flush();
@@ -113,7 +120,7 @@ class DashboardController extends AbstractController
         return $this->redirectToRoute('admin');
     }
 
-    #[Route('/admin/creer/categorie', name: 'add_categories')]
+    #[Route('/admin/create_category', name: 'add_categories')]
 
     public function addCategory(Request $request, EntityManagerInterface $em)
     {

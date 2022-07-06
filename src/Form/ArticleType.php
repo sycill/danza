@@ -5,18 +5,16 @@ namespace App\Form;
 use App\Entity\User;
 use App\Entity\Article;
 use App\Entity\Category;
-use App\Entity\Teacher;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ArticleType extends AbstractType
 {
@@ -41,6 +39,23 @@ class ArticleType extends AbstractType
                 },
                 'choice_label' => 'username'
             ])
+            ->add(
+                'imageName',
+                FileType::class,
+                [
+                    'label' => 'Image',
+                    'constraints' => [
+                        new Image(
+                            [
+                                'mimeTypesMessage' => 'Veuillez soumettre une image',
+                                'maxSize' => '400000',
+                                'maxSizeMessage' => 'Votre image fait {{ size }} {{ suffix }}. Ma limite est de {{ limit }} {{ suffix }}'
+                            ]
+                        )
+                    ]
+
+                ]
+            )
             ->add('submit', SubmitType::class, ['label' => 'Enregistrer']);
     }
 

@@ -6,38 +6,50 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Nos articles les plus récents:</h1>
-
-	<div>
-		<h2>Catégories :</h2>
-		<p>Si vous vous sentez d'humeur aventurière :</p>
-		{% for article in articles %}
-			{% for category in article.categories %}
-				<a href="{{ path('article_categories', {id: category.id})}}">#
-					{{ category.title }}</a>
+	<article class="categories">
+	<h2>Catégories</h2>
+		<p>On te laisse choisir : </p>
+			{% for category in categories %}
+				<div class="category">
+					<h4>{{ category.title}}</h4>
+				</div>
 			{% endfor %}
-		{% endfor %}
-		{% for article in articles %}
-			<div class="container">
-				<div class="grid">
+	</article>
+	<hr class="divider">
+	<article id="blog">
+		<h1>Nos articles les plus récents:</h1>
+			{# <h2>Catégories :</h2>
+			<p>Si vous vous sentez d'humeur aventurière :</p>
+			{% for article in articles %}
+				{% for category in article.categories %}
+					<a href="{{ path('article_categories', {id: category.id})}}">#
+						{{ category.title }}</a>
+				{% endfor %}
+			{% endfor %} #}
+		<div class="cards">
+			{% for article in articles %}
+				{# #personnages #}
+				
 					<div class="card">
+					{#  .personnage #}
 						<div class="card-img">
-							<img src="" alt="">
+							<img src="{{ asset('article_images/') }}{{ article.imageName }}" alt="{{ article.imageName }}">
+							{# <img src="{{ vich_uploader_asset(article, 'imageFile')}}" alt="{{ article.imageName}}"> #}
 						</div>
 						<div class="card-body">
+							{% for category in article.categories %}
+								<a href="{{ path('article_categories', {id: category.id}) }}"> {{ category }} </a>
+							{% endfor %}
 							<h2 class="card-title">{{ article.title }}</h2>
-							<p>{{ article.description|striptags|slice(0,100)~ '...'}}</p>
-							<a href="{{path('teacher', {id: article.id})}}" class="btn">Lire la suite</a>
+							<p>{{ article.description|striptags|slice(0,50)}}</p>
+							<a href="{{path('show_articles', {id: article.id})}}" class="btn">Lire la suite</a>
 							<p>by</p>
 							<a href="{{ path('teacher', { id: article.user.id })}}">{{ article.user.username }}</a>
 							<p>Publié le
 								{{ article.date|format_datetime('long', 'none', locale='fr')}}</p>
 						</div>
 					</div>
-				</div>
-			</div>
-		{% endfor %}
-	</div>
-	{# <img src="{{ asset('public/build/uploads/')}}{{ article.image }}" alt="{{ article.title }}"/> #}
-
+			{% endfor %}
+		</div>
+	</article>
 {% endblock %}

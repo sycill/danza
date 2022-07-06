@@ -10,16 +10,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
-    /**
-     * @Route("/user", name="app_user")
-     */
-    #[Route('/teacher/{id}', name: 'teacher')]
-    public function index(ManagerRegistry $doctrine, $id): Response
+    // #[Route('/utilisateur/{id}', name: 'user')]
+    // public function showUserDetails(ManagerRegistry $doctrine, $id): Response
+    // {
+    //     $repo = $doctrine->getRepository(User::class);
+    //     $user = $repo->find($id);
+    //     return $this->render('user/index.html.twig', [
+    //         'user' => $user
+    //     ]);
+    // }
+
+    #[Route('/professeur/{id}', name: 'teacher')]
+    public function showTeacherDetails(ManagerRegistry $doctrine, $id): Response
     {
         $repo = $doctrine->getRepository(User::class);
         $teacher = $repo->find($id);
-        return $this->render('user/index.html.twig', [
-            'teacher' => $teacher
-        ]);
+        return $this->render('teacher/prof.html.twig', ['teacher' => $teacher]);
     }
 }

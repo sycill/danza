@@ -3,13 +3,13 @@
 {% block body%}
 	<h2>Les articles de la catégorie</h2>
 	<div class="article">
-		<h2>{{ categories.title }}</h2>
-		{% for article in categories.article %}
-			<a href="">
+		<h2>{{ category.title }}</h2>
+		{% for article in category.article %}
+			<a href="{{ path('show_articles', {id: article.id}) }}">
 				<p>{{ article.title }}</p>
 			</a>
 		{% endfor %}
-		{# <p>{{ categories.article }}</p> #}
+		{# <p>{{ category.article }}</p> #}
 	</div>
 	{# <p>#
 											{{ 	categories.title }}</p> #}

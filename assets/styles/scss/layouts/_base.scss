@@ -3,25 +3,9 @@ html {
     color: $dark;
 }
 
-article{
+article {
     // text-align: center;
     margin: 2rem;
-}
-// Scrollbar
-
-::-webkit-scrollbar {
-    width: 1.5rem;
-}
-
-::-webkit-scrollbar-track {
-    background: hsl(342, 79%, 62%);
-    border-radius: 100vw;
-    margin-block: 0.5em;
-}
-
-::-webkit-scrollbar-thumb {
-    background: hsl(342, 74%, 33%);
-    border-radius: 100vw;
 }
 
 // Tailles des différents éléments
@@ -35,8 +19,6 @@ h1,
 h2 {
     text-align: center;
     text-transform: uppercase;
-    // padding: 1.01rem;
-    margin: 2.15rem;
 }
 
 
@@ -47,4 +29,9 @@ i {
 section {
     margin-top: $ma-top;
     margin-bottom: $ma-bottom;
+}
+
+.divider {
+    border-top: 3px solid rgb(207, 207, 207);
+    margin-inline: 20rem;
 }

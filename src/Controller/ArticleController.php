@@ -21,10 +21,13 @@ class ArticleController extends AbstractController
     ]
     public function index(ManagerRegistry $doctrine): Response
     {
-        $repository = $doctrine->getRepository(Article::class);
-        $articles = $repository->findBy([], ['title' => 'DESC']);
+        $repo1 = $doctrine->getRepository(Article::class);
+        $repo2 = $doctrine->getRepository(Category::class);
+        $articles = $repo1->findBy([], ['date' => 'DESC'], 3);
+        $categories = $repo2->findAll();
+        // dd($articles);
         return $this->render('article/index.html.twig', [
-            'articles' => $articles
+            'articles' => $articles, 'categories' => $categories
         ]);
     }
 
@@ -44,11 +47,11 @@ class ArticleController extends AbstractController
     }
 
 
-    #[Route('/articles/categories/{id}', name: 'article_categories')]
+    #[Route('/articles/category/{id}', name: 'article_categories')]
     public function showArticlesByCategory($id, ManagerRegistry $doctrine): Response
     {
         $repository = $doctrine->getRepository(Category::class);
-        $categories = $repository->find($id);
-        return $this->render('article/categorie.html.twig', ['categories' => $categories]);
+        $category = $repository->find($id);
+        return $this->render('article/categorie.html.twig', ['category' => $category]);
     }
 }
