@@ -1,4 +1,4 @@
-.card{
+.card {
     width: 80%;
     margin: auto;
     text-align: center;
@@ -8,13 +8,16 @@
     padding: 2rem 1.5rem;
     border-radius: $bo-radius;
     line-height: 1.75;
-    &:hover{
-        transition: ease-in-out 0.3s;
+
+    &:hover {
+        transition: 0.5s ease-in-out, transform 150ms ease;
     }
-    a{
+
+    a {
         font-family: "Poppins Regular";
         font-weight: 700;
-        &:hover{
+
+        &:hover {
             color: $accent;
             cursor: pointer;
         }

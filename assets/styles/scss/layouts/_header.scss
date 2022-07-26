@@ -1,8 +1,5 @@
-.m-header {
+header {
     background-color: $light;
-}
-
-#main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,14 +9,17 @@
     }
 
     // @media screen and (max-width: 768px) {
+
     //     #main-header .navbar,
     //     #main-header a.nav-links,
     //     i {
     //         flex-direction: row;
     //     }
+
     //     #main-header .navbar {
     //         justify-content: center;
     //     }
+
     //     #main-header a.nav-links {
     //         gap: 2rem;
     //     }
@@ -28,15 +28,24 @@
     .navbar {
         margin-right: 3rem;
 
-        @media screen and (max-width: 969px) {
-            display: none;
-            // flex-direction: column;
+        // @media screen and (max-width: 969px) {
+        // }
+
+        .logo {
+            display: inline;
         }
 
-        ul {
+        .menu {
             list-style: none;
             display: flex;
             gap: 1.25rem;
+            // visibility: visible;
+
+            @media screen and (max-width: 969px) {
+                text-align: center;
+                display: none;
+                flex-direction: column;
+            }
 
             li {
                 a.nav-links {
@@ -46,71 +55,78 @@
                     font-weight: 600;
                     font-size: 1.2rem;
                     color: $dark;
+                    font-size: 17px;
 
                     &:hover {
                         color: $accent;
                     }
                 }
 
-            }
+                a.register-link {
+                    color: $light;
+                    background-color: $accent;
+                    padding: 0.5rem;
+                    border-radius: 3px;
 
-            i {
-                padding: 0;
-                font-size: 35px;
-                color: $dark;
-                cursor: pointer;
+                    &:hover {
+                        background-color: $light;
+                        color: $accent;
+                        border: 1px solid $accent;
+                        transition: 0.5s ease-in-out, transform 150ms ease;
+                    }
+                }
+
+                a.login-link {
+                    border: 1px solid $accent;
+                    background-color: $light;
+                    padding: 0.5rem;
+                    color: $accent;
+                    border-radius: 3px;
+
+
+                    &:hover {
+                        color: $light;
+                        background-color: $accent;
+                        transition: 0.5s ease-in-out, transform 150ms ease;
+                    }
+                }
+
+
             }
         }
     }
 
-    #menu.toggle {
+    .burger {
+        padding: 0;
+        font-size: 1.75rem;
+        color: $dark;
+        cursor: pointer;
+        display: none;
+
         @media screen and (max-width: 969px) {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            margin-left: auto;
-            padding-top: 1rem;
-            padding-right: 3rem;
-            cursor: pointer;
-        }
-
-        i {
-            @media screen and (max-width: 969px) {
-                display: block;
-                position: relative;
-                top: -10px;
-                font-size: 2rem;
-                margin: 5px;
-            }
-        }
-
-        .open {
             display: block;
+            top: -10px;
+            font-size: 1.75rem;
+            margin: 5px;
         }
-
-        .close {
-            display: none;
-        }
-
-        .ouvrir .open {
-            display: none;
-        }
-
-        .fermer .close {
-            display: block;
-        }
-
     }
+
+    // #menu.toggle {
 
     // #signin-modal {
     //     // visibility: visible;
     //     position: absolute;
     //     background-color: darkgrey;
     //     opacity: 0;
-    //     transition: opacity 0.3s, visibility 0.3s;
+    //     transition: 0.5s ease-in-out, transform 150ms ease: opacity 0.3s, visibility 0.3s;
     //     &.is_visible {
     //         visibility: visible;
     //         opacity: 1;
     //     }
     // }
+    // }
+}
+
+.active {
+    display: block;
 }

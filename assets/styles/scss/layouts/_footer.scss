@@ -3,18 +3,19 @@ footer {
     width: 100%;
     padding: 0 3%;
 
-    
+
     .footnav {
         display: flex;
         justify-content: space-evenly;
         margin-top: $ma-top;
 
-        @media screen and (max-width: 596px){
+        @media screen and (max-width: 596px) {
             flex-direction: column;
         }
+
         .g-map {
             display: block;
-            width: 90vw;
+            width: 50vw;
             border: 0;
             margin-top: $ma-top;
             max-width: 800px;
@@ -22,7 +23,8 @@ footer {
             border: 2px solid $accent;
             border-radius: $bo-radius;
             box-shadow: $bo-shadow;
-            @media screen and (max-width: 596px){
+
+            @media screen and (max-width: 596px) {
                 height: 350px;
                 width: 70%;
                 margin: auto;
@@ -42,7 +44,8 @@ footer {
 
         }
     }
-    .lien  {
+
+    .lien {
         display: flex;
         gap: 2rem;
         justify-content: center;

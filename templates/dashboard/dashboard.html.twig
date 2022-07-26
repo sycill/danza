@@ -1,14 +1,21 @@
 {% extends 'base.html.twig'%}
 {% block body %}
 	{# <aside class="sidebar"></aside> #}
-	<h3>Ciao
-		{{ app.user.username}} !
-		<span><i class="fas fa-smile"></i></span>
-		</h3>
-	<a href="{{ path('app_logout')}}">Se déconnecter</a>
+	<div class="user-infos">
+		<h3>Ciao
+			{{ app.user.username}} !
+			</h3>
+	<a href="{{ path('app_logout')}}">Se déconnecter</a>	
+	</div>
 	<article id="dashboard">
 		<div class="admin-infos">
-			<div class="admin-photo"></div>
+			<div class="admin-photo">
+			{% if app.user.profilePicture %}
+					<img class="profile-picture" src="{{ app.user.profilePicture }}" alt="">
+				{% else %}
+					<i class="fas fa-user"></i>
+			{% endif %}
+			</div>
 			<div class="admin-body">
 				<p>{{app.user.firstname}}</p>
 				<p>{{app.user.lastname}}</p>
@@ -19,7 +26,7 @@
 			<a href="{{path('create_article')}}" class="btn">Créer un article</a>
 			<a href="{{ path('add_categories')}}" class="btn">Créer une catégorie</a>
 		</div>
-			<div style="overflow-x:auto;">
+			<div class="article-table">
 				<table>
 					<tr>
 						<th>#</th>
@@ -34,7 +41,7 @@
 						{% set i = 1 %}
 							<td>{{ i }}</td>
 							<td><a href="{{ path('admin_article', {'id': article.id}) }}" target="_blank">{{ article.title|raw }}</a></td>
-							<td>{{ article.description|raw|slice(0,100)}}</td>
+							<td>{{ article.description|striptags|slice(0,100)}}</td>
 							<td>{{ article.updatedAt ? article.updatedAt|date('d/m/Y') : '-' }}</td>
 							{% for category in article.categories %}
 								<td>{{ category.title }}</td>

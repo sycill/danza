@@ -1,33 +1,82 @@
-article {
+#dashboard {
 
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
+    .admin-infos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $light;
+        border-radius: $bo-radius;
+        box-shadow: $bo-shadow;
+        width: 40%;
+        padding: 2rem;
+        margin: auto;
 
-        th {
-            background-color: $light;
-            border: 1px solid;
-            padding: 0.75rem;
-            border-collapse: collapse;
+        @media screen and (max-width: 950px) {
+            flex-direction: column;
+            padding: 0;
         }
 
-        td {
-            text-align: center;
-            border: 1px solid;
-            padding: 0.75rem;
-            border-collapse: collapse;
+        .profile-picture {}
 
-            a {
-                margin-left: 0;
+        .admin-photo {
+            margin: auto;
+
+            i {
+                font-size: 5rem;
             }
         }
 
-        i {
-            padding: 0.75rem;
+        .admin-body {
+            padding: 2rem;
 
-            &:hover {
-                color: $accent;
+            p {
+                font-style: italic;
+            }
+        }
+
+
+    }
+
+    .links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .article-table {
+        overflow-x: auto;
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: auto;
+
+            th {
+                background-color: $light;
+                border: 1px solid;
+                padding: 0.75rem;
+                border-collapse: collapse;
+            }
+
+            td {
+                text-align: center;
+                border: 1px solid;
+                padding: 0.75rem;
+                border-collapse: collapse;
+
+                a {
+                    margin-left: 0;
+                }
+            }
+
+            i {
+                padding: 0.75rem;
+
+                &:hover {
+                    color: $accent;
+                }
             }
         }
     }
+
 }

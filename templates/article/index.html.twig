@@ -8,24 +8,14 @@
 {% block body %}
 	<article class="categories">
 	<h2>Catégories</h2>
-		<p>On te laisse choisir : </p>
+		<p>Si vous vous sentez d'humeur aventurière :</p>
 			{% for category in categories %}
-				<div class="category">
-					<h4>{{ category.title}}</h4>
-				</div>
+				<a href="{{ path('article_categories', {id: category.id})}}">{{ category.title}}</a>
 			{% endfor %}
 	</article>
 	<hr class="divider">
 	<article id="blog">
 		<h1>Nos articles les plus récents:</h1>
-			{# <h2>Catégories :</h2>
-			<p>Si vous vous sentez d'humeur aventurière :</p>
-			{% for article in articles %}
-				{% for category in article.categories %}
-					<a href="{{ path('article_categories', {id: category.id})}}">#
-						{{ category.title }}</a>
-				{% endfor %}
-			{% endfor %} #}
 		<div class="cards">
 			{% for article in articles %}
 				{# #personnages #}
@@ -49,6 +39,20 @@
 								{{ article.date|format_datetime('long', 'none', locale='fr')}}</p>
 						</div>
 					</div>
+			{% endfor %}
+		</div>
+	</article>
+	<hr class="divider">
+	<article>
+		<h2> Articles par discipline :</h2>
+		<div class="lesson-cards">
+			{% for lesson in lessons %}
+				<div class="lesson-card">
+					<h3>{{ lesson.title}}</h3>
+					<ul>
+						<li></li>
+					</ul>
+				</div>
 			{% endfor %}
 		</div>
 	</article>

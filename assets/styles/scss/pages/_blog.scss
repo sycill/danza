@@ -95,3 +95,22 @@
         }
     }
 }
+
+.lesson-cards {
+    display: flex;
+    gap: 1rem;
+
+    .lesson-card {
+        h2 {
+            margin-block: 1.5rem;
+        }
+
+        border: 1px solid black;
+        padding: 1rem;
+        border-radius: $bo-radius;
+
+        ul {
+            list-style: none;
+        }
+    }
+}

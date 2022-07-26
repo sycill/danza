@@ -2,7 +2,6 @@
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
   "build/runtime.js": "/build/runtime.js",
-  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
   "build/img/vittoria.jpg": "/build/img/vittoria.bdd37378.jpg",
   "build/img/dm1.jpg": "/build/img/dm1.30bc5372.jpg",
   "build/img/prof2.jpg": "/build/img/prof2.ffff3d5c.jpg",
@@ -26,5 +25,10 @@
   "build/img/prof4.webp": "/build/img/prof4.c4b51860.webp",
   "build/img/prof5.webp": "/build/img/prof5.b3a29f40.webp",
   "build/img/prof3.webp": "/build/img/prof3.a6a20f9e.webp",
-  "build/img/favicon.svg": "/build/img/favicon.d5473597.svg"
+  "build/img/favicon.svg": "/build/img/favicon.d5473597.svg",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_arr-0381ee.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_arr-0381ee.js",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.js",
+  "build/img/slider2.jpeg": "/build/img/slider2.63b3b1b0.jpeg",
+  "build/img/slider3.jpg": "/build/img/slider3.070e2515.jpg",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-5fa493.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-5fa493.js"
 }

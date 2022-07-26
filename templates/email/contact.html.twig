@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% apply inline_css(source('@css/welcome-email.css')) %}
+        <h1 class="test">Bienvenue sur Danza, {{ email.toName }}</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit ullam nesciunt neque aliquam unde perspiciatis quo, illum atque voluptates quos temporibus adipisci! Tempora mollitia aut vitae, nesciunt impedit illum deleniti?</p>
+    {% endapply %}
+</body>
+</html>

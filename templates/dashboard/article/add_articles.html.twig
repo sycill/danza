@@ -1,10 +1,10 @@
 {% extends 'base.html.twig'%}
 {% block body %}
 	{# <aside class="sidebar"></aside> #}
-	<h3>Salut
-		{{ app.user.username}}
-		!</h3>
-	<a href="{{ path('app_logout')}}">Se déconnecter</a>
+	<div class="user-infos">
+		<h3>Salut {{ app.user.username}}!</h3>
+		<a href="{{ path('app_logout')}}">Se déconnecter</a>
+	</div>
 	<article id="dashboard">
 		<h2>
 			Créer un article</h2>

@@ -13,32 +13,39 @@
 	<body>
 		<h1>Danza, ton école de danse</h1>
 		<section id="img-prin">
-			<div class="img-presentation">
-				<img src="{{ asset('build/img/slider1.jpg') }}" alt="Image de présentation du site">
+			<div class="slider">
+				<img class="img-slider active" src="{{ asset('build/img/slider1.jpg') }}" alt="Image de présentation du site">
+				<img class="img-slider"  src="{{ asset('build/img/slider2.jpeg') }}" alt="Image de présentation du site">
+				<img class="img-slider"  src="{{ asset('build/img/slider3.jpg') }}" alt="Image de présentation du site">
+				<div class="next">
+					<i class="fas fa-chevron-circle-right"></i>
+				</div>
+				<div class="back">
+					<i class="fas fa-chevron-circle-left"></i>
+				</div>
 			</div>
 		</section>
 		<section id="presentation">
 			<article class="card">
 				<h2>Profs internationaux</h2>
 				<img src="{{ asset('build/img/prof1.jpg') }}" alt="Images de la carte">
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, cumque repellat facilis deleniti, saepe fugit laudantium voluptatum commodi, provident esse mollitia ad iste ab. Excepturi voluptates blanditiis illo vero earum quas quae sequi magnam tenetur?</p>
+				<p>Nos professeurs ont été soigneusement sélectionnés par pour leurs technicités, leurs pédagogies et leurs énergies. Tu peux être sûr.e que tu es entre de bonnes mains.</p>
 			</article>
 			<article class="card">
 				<h2>Cours tous niveaux</h2>
 				<img src="{{ asset('build/img/stage.jpg') }}" alt="Images de la carte">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem amet a accusantium saepe obcaecati consequatur? Molestiae, consequatur repellat impedit cum illum rem quos alias dicta et ut a id beatae ad tempore, inventore numquam.</p>
+				<p>Des cours débutants aux cours confirmés, peu importe ton besoin, tu trouveras forcément le cours qui te correspond. Nous formons les futurs danseurs de demain, amène ta passion et ton énergie et nous nous occupons du reste.</p>
 			</article>
 			<article class="card">
 				<h2>Blog</h2>
 				<img src="{{ asset('build/img/intensive.jpg') }}" alt="Images de la carte">
-				<p>Venez participer aux stages de nos professeurs pour vous perfectionner, peut-être découvrir de nouvelles techniques et vous faire de nouveaux amis?
-				</p>
+				<p>Nos professeurs manient aussi bien leurs corps que la plume. On t'invite à découvrir les articles croustillants et bourrés de conseils qui pullulent sur notre blog !</p>
 			</article>
 		</body>
 	</body>
 </section>
-<section id="services">
-	<div class="card">
+<section id="reviews">
+	{# <div class="card">
 		<img src="{{asset('build/img/dance_class.webp')}}" alt="image du cours">
 		<h2>Cours</h2>
 		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut sint, nulla earum officia odit voluptate possimus voluptatibus dolorem nostrum sunt, sequi architecto. Vero, optio quas!</p>
@@ -49,6 +56,63 @@
 		<h2>Blog</h2>
 		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam odit quisquam, nobis aperiam id repellat. Id illum molestiae quasi nostrum commodi porro repellat, distinctio ad?</p>
 		<a href="{{path('app_article')}}" class="btn">Découvrir</a>
+	</div> #}
+	<div class="container">
+		<div class="wrapper">
+			<div class="card-wrapper">
+				<div class="card-header">
+					<img src="{{ asset('build/img/prof1.jpg')}}" alt="Photo de l'élève">
+					<h3 class="student-name">Maryss de Paris</h3>
+				</div>
+				<div class="card-body">
+					<p class="review">J'ai commencé à prendre des cours de danse classique avec Romy, il y a un an de ça et je ne peux que vous le recommandez!</p>
+					<div class="rating">
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star-half-alt"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-wrapper">
+				<div class="card-header">
+					<img src="" alt="Photo de l'élève">
+					<h3 class="student-name">Maryss de Paris</h3>
+				</div>
+				<div class="card-body">
+					<p class="review">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id laudantium, fuga quibusdam debitis ipsum labore rem laboriosam ducimus adipisci excepturi fugiat delectus omnis ut eos sit recusandae! Laudantium, necessitatibus odio!</p>
+					<div class="rating">
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-wrapper">
+				<div class="card-header">
+					<img src="" alt="Photo de l'élève">
+					<h3 class="student-name">Maryss de Paris</h3>
+				</div>
+				<div class="card-body">
+					<p class="review">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id laudantium, fuga quibusdam debitis ipsum labore rem laboriosam ducimus adipisci excepturi fugiat delectus omnis ut eos sit recusandae! Laudantium, necessitatibus odio!</p>
+					<div class="rating">
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star"></i>
+						<i class="stars fas fa-star-half-alt"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="switches">
+			<button class="switch">
+			</button>
+			<button>
+			</button>
+			<button>
+			</button>
+		</div>
 	</div>
 </section>
 <section id="spotlight">

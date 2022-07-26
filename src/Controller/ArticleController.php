@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 // use DateTime;
+use App\Entity\Lesson;
 use App\Entity\Article;
 use App\Entity\Category;
 use Doctrine\Persistence\ManagerRegistry;
@@ -23,11 +24,13 @@ class ArticleController extends AbstractController
     {
         $repo1 = $doctrine->getRepository(Article::class);
         $repo2 = $doctrine->getRepository(Category::class);
+        $repo3 = $doctrine->getRepository(Lesson::class);
         $articles = $repo1->findBy([], ['date' => 'DESC'], 3);
         $categories = $repo2->findAll();
+        $lessons = $repo3->findAll();
         // dd($articles);
         return $this->render('article/index.html.twig', [
-            'articles' => $articles, 'categories' => $categories
+            'articles' => $articles, 'categories' => $categories, 'lessons' => $lessons
         ]);
     }
 

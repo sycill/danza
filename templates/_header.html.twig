@@ -1,5 +1,5 @@
 {% block header %}
-	<header class="m-header" id="main-header">
+	<header>
 		<div class="logo">
 			<a href="{{ path('app_home')}}"><img src="{{asset('build/img/logo_petit.png')}}" alt="logo du site"></a>
 		</div>
@@ -15,6 +15,10 @@
 				<li>
 					<a href="{{ path('app_article') }}" class="nav-links">Blog</a>
 				</li>
+				<li>
+					<a href="{{ path('app_contact')}}" class="nav-links">Contact</a>
+				</li>
+
 				{% if is_granted('ROLE_USER')%}
 					<li>
 						<a class="nav-links logout-link" href="{{ path('app_profile')}}">Mon profil</a>
@@ -32,23 +36,19 @@
 					</li>
 				{% else %}
 					<li>
-						<a class="nav-links login-link" href="{{ path('app_login')}}">Connexion</a>
+						<a class="btn nav-links login-link" href="{{ path('app_login')}}">Connexion</a>
 					</li>
 					<li>
-						<a class="nav-links register-link" href="{{path('app_register')}}">Inscription</a>
+						<a class="btn nav-links register-link" href="{{path('app_register')}}">Inscription</a>
 					</li>
 				{% endif %}
-					<li>
-						<a href="{{ path('app_contact')}}" class="nav-links">Contact</a>
-					</li>
 			</ul>
 			{# <i id="btn-icon" class="fas fa-user-circle"></i> #}
+		{# <div class="burger"> #}
+			<div class="burger">
+				<i class="fas fa-bars"></i>
+			</div>
+		{# </div> #}
 		</nav>
-		<div class="toggle">
-			<i class="open fas fa-bars"></i>
-			<i class="close fas fa-times"></i>		
-		</div>
-
-
 	</header>
 {% endblock %}
