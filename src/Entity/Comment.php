@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,46 +19,29 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $title;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $comment;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime_immutable")
      */
     private $created_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comment")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $article_id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comment")
      */
-    private $author;
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comments")
+     */
+    private $article;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(?string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
     }
 
     public function getComment(): ?string
@@ -86,26 +68,26 @@ class Comment
         return $this;
     }
 
-    public function getArticleId(): ?Article
+    public function getUser(): ?User
     {
-        return $this->article_id;
+        return $this->user;
     }
 
-    public function setArticleId(?Article $article_id): self
+    public function setUser(?User $user): self
     {
-        $this->article_id = $article_id;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getAuthor(): ?User
+    public function getArticle(): ?Article
     {
-        return $this->author;
+        return $this->article;
     }
 
-    public function setAuthor(?User $author): self
+    public function setArticle(?Article $article): self
     {
-        $this->author = $author;
+        $this->article = $article;
 
         return $this;
     }

@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ckeditor/ckeditor": "^4.17",
+        "connectholland/cookie-consent-bundle": "^0.10.0",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/doctrine-migrations-bundle": "^3.2",
@@ -50,8 +51,7 @@
         "twig/extra-bundle": "^3.4",
         "twig/intl-extra": "^3.4",
         "twig/string-extra": "^3.4",
-        "twig/twig": "^2.12|^3.0",
-        "vich/uploader-bundle": "^1.19"
+        "twig/twig": "^2.12|^3.0"
     },
     "config": {
         "allow-plugins": {

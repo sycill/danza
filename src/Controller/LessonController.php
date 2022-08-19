@@ -11,19 +11,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/lessons', name: 'lessons_')]
 
 class LessonController extends AbstractController
 {
-    #[Route('/index', name: 'index')]
+    #[Route('/cours', name: 'app_cours')]
     public function index(ManagerRegistry $doctrine): Response
     {
-        $repository = $doctrine->getRepository(Lesson::class);
-        $lessons = $repository->findBy([], ['title' => 'ASC']);
-        return $this->render('lesson/index.html.twig', ['lessons' => $lessons]);
+        // $repository = $doctrine->getRepository(Lesson::class);
+        // $lessons = $repository->findBy([], ['title' => 'ASC']);
+        return $this->render('lesson/index.html.twig');
     }
 
-    #[Route('/lesson/{id}', name: 'details')]
+    #[Route('/cours/{id}', name: 'details')]
 
     public function show($id, ManagerRegistry $doctrine)
     {

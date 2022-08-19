@@ -1,133 +1,211 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}Ton école de danse |
 	{{site_name}}
 {% endblock %}
 {% block body %}
-	{# {% if app.user %} #}
-	{% if is_granted('ROLE_USER')%}
-		{# {% if is_granted('IS_AUTHENTICATED_FULLY') %} #}
-		<h2>Hello
-			{{ app.user.username}}
-			!</h2>
-	{% endif %}
 	<body>
-		<h1>Danza, ton école de danse</h1>
 		<section id="img-prin">
 			<div class="slider">
-				<img class="img-slider active" src="{{ asset('build/img/slider1.jpg') }}" alt="Image de présentation du site">
-				<img class="img-slider"  src="{{ asset('build/img/slider2.jpeg') }}" alt="Image de présentation du site">
-				<img class="img-slider"  src="{{ asset('build/img/slider3.jpg') }}" alt="Image de présentation du site">
+				<img class="img-slider active"  src="{{ asset('build/img/slider2.jpeg') }}" alt="Image de présentation du site">
+				<img class="img-slider" src="{{ asset('build/img/slider4.jpeg') }}" alt="Image de présentation du site">
+				<img class="img-slider" src="{{ asset('build/img/slider5.jpeg') }}" alt="Image de présentation du site">
+				
 				<div class="next">
-					<i class="fas fa-chevron-circle-right"></i>
+					<i class="fas fa-chevron-right"></i>
 				</div>
 				<div class="back">
-					<i class="fas fa-chevron-circle-left"></i>
+					<i class="fas fa-chevron-left"></i>
 				</div>
 			</div>
 		</section>
-		<section id="presentation">
-			<article class="card">
-				<h2>Profs internationaux</h2>
-				<img src="{{ asset('build/img/prof1.jpg') }}" alt="Images de la carte">
-				<p>Nos professeurs ont été soigneusement sélectionnés par pour leurs technicités, leurs pédagogies et leurs énergies. Tu peux être sûr.e que tu es entre de bonnes mains.</p>
-			</article>
-			<article class="card">
-				<h2>Cours tous niveaux</h2>
-				<img src="{{ asset('build/img/stage.jpg') }}" alt="Images de la carte">
-				<p>Des cours débutants aux cours confirmés, peu importe ton besoin, tu trouveras forcément le cours qui te correspond. Nous formons les futurs danseurs de demain, amène ta passion et ton énergie et nous nous occupons du reste.</p>
-			</article>
-			<article class="card">
-				<h2>Blog</h2>
-				<img src="{{ asset('build/img/intensive.jpg') }}" alt="Images de la carte">
-				<p>Nos professeurs manient aussi bien leurs corps que la plume. On t'invite à découvrir les articles croustillants et bourrés de conseils qui pullulent sur notre blog !</p>
-			</article>
+			<h2>Pourquoi notre école ?</h2>
+			<div class="border"></div>
+		<article id="presentation">
+			<div class="card-container">
+				<div class="card-content">
+					<img src="{{ asset('build/img/prof1.jpg') }}" alt="Images de la carte">
+					<h3>Profs internationaux</h3>
+					<p>Nos professeurs ont été soigneusement sélectionnés pour leur savoir-faire, leur pédagogie et leur énergie. Tu peux être sûr.e que tu es entre de bonnes mains.</p>
+					<div class="flexible"></div>
+				</div>
+			</div>
+			<div class="card-container">
+				<div class="card-content">
+					<img src="{{ asset('build/img/stage.jpg') }}" alt="Images de la carte">
+					<h3>Cours tous niveaux</h3>
+					<p>Des cours <strong>débutants</strong> aux cours <strong>confirmés</strong>, peu importe ton besoin, tu trouveras forcément le cours qui te correspond. Nous formons les danseurs de demain, amène ta passion et ton énergie et nous nous occupons du reste.</p>
+					<div class="flexible"></div>
+				</div>
+			</div>
+			<div class="card-container">
+				<div class="card-content">
+					<img src="{{ asset('build/img/intensive.jpg') }}" alt="Images de la carte">
+					<h3>Dance Crew</h3>
+					<p>Nous organisons des auditions bisannuelles pour notre <strong>dance crew</strong>, en été et au printemps. Notre but ultime : participer au <strong>World of Dance</strong> ! Si tu penses avoir le talent et la fortitude de te mesurer aux plus grands, tu es le.la bienvenu.e </p>
+				</div>
+			</div>
+		</article>
 		</body>
 	</body>
 </section>
-<section id="reviews">
-	{# <div class="card">
-		<img src="{{asset('build/img/dance_class.webp')}}" alt="image du cours">
-		<h2>Cours</h2>
-		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut sint, nulla earum officia odit voluptate possimus voluptatibus dolorem nostrum sunt, sequi architecto. Vero, optio quas!</p>
-		<a href="{{path('lessons_index')}}" class="btn">Découvrir</a>
-	</div>
-	<div class="card">
-		<img src="{{ asset('build/img/cours_hip_hop.webp')}}" alt="image du stage">
-		<h2>Blog</h2>
-		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam odit quisquam, nobis aperiam id repellat. Id illum molestiae quasi nostrum commodi porro repellat, distinctio ad?</p>
-		<a href="{{path('app_article')}}" class="btn">Découvrir</a>
-	</div> #}
-	<div class="container">
-		<div class="wrapper">
-			<div class="card-wrapper">
-				<div class="card-header">
-					<img src="{{ asset('build/img/prof1.jpg')}}" alt="Photo de l'élève">
-					<h3 class="student-name">Maryss de Paris</h3>
-				</div>
-				<div class="card-body">
-					<p class="review">J'ai commencé à prendre des cours de danse classique avec Romy, il y a un an de ça et je ne peux que vous le recommandez!</p>
-					<div class="rating">
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star-half-alt"></i>
-					</div>
-				</div>
-			</div>
-			<div class="card-wrapper">
-				<div class="card-header">
-					<img src="" alt="Photo de l'élève">
-					<h3 class="student-name">Maryss de Paris</h3>
-				</div>
-				<div class="card-body">
-					<p class="review">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id laudantium, fuga quibusdam debitis ipsum labore rem laboriosam ducimus adipisci excepturi fugiat delectus omnis ut eos sit recusandae! Laudantium, necessitatibus odio!</p>
-					<div class="rating">
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-					</div>
-				</div>
-			</div>
-			<div class="card-wrapper">
-				<div class="card-header">
-					<img src="" alt="Photo de l'élève">
-					<h3 class="student-name">Maryss de Paris</h3>
-				</div>
-				<div class="card-body">
-					<p class="review">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id laudantium, fuga quibusdam debitis ipsum labore rem laboriosam ducimus adipisci excepturi fugiat delectus omnis ut eos sit recusandae! Laudantium, necessitatibus odio!</p>
-					<div class="rating">
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star"></i>
-						<i class="stars fas fa-star-half-alt"></i>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="switches">
-			<button class="switch">
-			</button>
-			<button>
-			</button>
-			<button>
-			</button>
-		</div>
-	</div>
-</section>
+
+	<h2>Notre actualité</h2>
+	<div class="border"></div>
 <section id="spotlight">
 	<div class="exclu">
-		<img src="{{ asset("build/img/prof2.jpg") }}" alt="">
+		<h3>Spotlight</h3>
+		<img src="{{ asset("build/img/john_crew.jpg") }}" alt="John Lambert">
+		<div class="new-member">
+			<p>On vous présente le nouveau membre du dance crew Updance !
+			John Lambert, le popping master. T'as tout donné et ça a payé
+			</p>
+			<p>On a hâte de te voir sur scène !</p>
+			<p>Bienvenue à toi Johnny !</p>
+		</div>
+		<div class="flexible"></div>
 	</div>
 	<div class="exclu">
-		<h2>Spotlight</h2>
-		<p>En exclusivité ce mois-ci:</p>
-		<p>John Lambert, le popping master</p>
-		<p>est de retour en France pour un</p>
-		<p>stage de folie!</p>
-		<p>Date: 26 mars 2022</p>
-		<p>Niveau intermédiaire/avancé</p>
-		<a href="#" class="btn">Réserver</a>
+		<h3>Nos derniers articles</h3>
+		<ul class="post-list">
+		{% for post in posts %}
+			<li>
+				<a href="{{ path('show_articles', {id: post.id})}}">
+				<span><i class="fas fa-book"></i></span>
+				{{ post.title}} </a>
+			</li>
+		{% endfor %}
+		</ul>
+		<a href="{{ path('app_article')}}" class="btn">Blog</a>
+		<h3>Nos évènements :</h3>
+		<ul class="event-list">
+			<li>Stage moderne Jazz avec Ash : 12 août 2022 </li>
+			<li>Stage salsa : 17 août 2022</li>
+			{# <li>Prochaine soirée virtual dance : 20 août 2022</li> #}
+			<li>Reprise des cours : 5 septembre 2022</li>
+			<li>Audition pour Updance Crew (hip-hop): 10 octobre 2022</li>
+		</ul>
 	</div>
 </section>
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script></body>{% endblock %}
+
+
+<section id="reviews">
+	<div class="testimonials">
+		<div class="inner">
+			<h2>L'avis de nos élèves :</h2>
+			<div class="border"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="testimonial">
+						<div class="student-img">
+							<img src="{{ asset('build/img/review2.jpeg') }}" alt="Image d'un élève de l'école">
+						</div>
+						<div class="name">Savannah Tan</div>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+						</div>
+						<div class="flexible"></div>
+						<div class="card-content">
+							<p>Je prends des cours de hip-hop depuis que j'ai 10 ans et je peux dire avec certitude que Biz est le meilleur prof que j'ai eu. Il est patient, exigeant et n'hésite pas à répondre aux questions. Il est toujours de bon conseil et s'adapte à chacun de ses élèves.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="testimonial">
+						<div class="student-img">
+							<img src="{{ asset('build/img/review3.jpeg') }}" alt="Image d'un élève de l'école">
+						</div>
+						<div class="name">Guillaume Paquin</div>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+						<div class="flexible"></div>
+						<div class="card-content">
+							<p>Je suis tombé sur une pub pour Danza par hasard sur Insta. J'ai toujours voulu apprendre à danser, mais je ne me suis pas lancé par peur du ridicule. Je n'avais pas à m'inquiéter.Astrid, la prof de moderne-jazz, m'a tout de suite mis à l'aise. Nous étions deux hommes dans la salle, mais elle nous a mis tout de suite à l'aise. </p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col">
+					<div class="testimonial">
+						<div class="student-img">
+							<img src="{{ asset('build/img/review5.jpg') }}" alt="Image d'un élève de l'école">
+						</div>
+						<div class="name">Annelise Granet</div>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+						</div>
+						<div class="flexible"></div>
+						<div class="card-content">
+							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam blanditiis ea, deserunt dolor soluta quisquam doloremque sed. Quia dicta soluta molestiae commodi mollitia. Doloribus blanditiis, dolor labore perferendis voluptas placeat.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+<section id="faq">
+	<h2>FAQ </h2>
+		<div class="accordion">
+			<div>
+				<input type="checkbox" class="accordion-input" name="accordion-item" id="question1">
+				<label for="question1" class="accordion-label">Que faire si je ne sais pas quel cours suivre ? </label>
+				<div class="answer">
+					<p>Tu as le droit d'essayer tous les cours au moins une fois ! Nous comprenons ton dilemne, ne t'inquiètes pas ;)</p>
+				</div>
+			</div>
+			
+			<div>
+				<input type="checkbox" class="accordion-input" name="accordion-item" id="question2">
+				<label for="question2" class="accordion-label">Est-ce que je peux rejoindre un cours en plein milieu de l'année ?</label>
+
+				<div class="answer">
+					<p>Tout dépend de ton niveau et de ta motivation, mais nous ne le conseillons pas.</p>
+				</div>
+			
+			</div>
+
+			<div>
+				<input type="checkbox" class="accordion-input" name="accordion-item" id="question3">
+				<label for="question3" class="accordion-label">Quand ont lieu les auditions pour le dance crew ?</label>
+
+				<div class="answer">
+					<p>En février et en juin</p>
+				</div>
+			
+			</div>
+
+			<div>
+				<input type="checkbox" class="accordion-input" name="accordion-item" id="question4">
+				<label for="question4" class="accordion-label">Organisez-vous un spectacle tous les ans ?</label>
+				<div class="answer">
+					<p>Nous essayons d'en organiser un tous les ans, mais avec les tournées du dance crew, il est possible que nous sautions une année. </p>
+				</div>
+			</div>
+
+			<div>
+				<input type="checkbox" class="accordion-input" name="accordion-item" id="question5">
+				<label for="question5" class="accordion-label">Peut-on s'habiller comme on veut pendant les cours ?</label>
+				<div class="answer">
+					<p>Absolument ! Nous l'encourageons. Même nos danseur.ses classiques s'y mettent. L'important est que tu sois à l'aise pendant tes cours. </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>{% endblock %}

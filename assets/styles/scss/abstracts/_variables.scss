@@ -3,6 +3,7 @@
 $light: #f7efef;
 $dark: #3a1153;
 $accent: #ff3d54;
+$accent-light: #f97685;
 
 // SIZES: PADDINGS AND THE LIKES
 
@@ -10,3 +11,5 @@ $bo-radius: 6px;
 $ma-bottom: 3rem;
 $ma-top: 3rem;
 $bo-shadow: 3px 3px 3px 3px lightgrey;
+$transition: 0.5s ease-in-out, transform 150ms ease;
+// $transition: transform 250ms ease;

@@ -1,12 +1,14 @@
 #form {
     display: flex;
-    flex-direction: row;
-    // border: 1px solid lightgray;
-    // box-shadow: 2px 3px 3px 1px lightgrey;
-    // width: 45%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $accent;
+    border-radius: $bo-radius;
     margin: auto;
     padding: 2rem;
-    justify-content: center;
+    box-shadow: $bo-shadow;
+
 
     label {
         display: block;
@@ -14,10 +16,27 @@
         text-transform: uppercase;
     }
 
-    input {
+    input,
+    textarea {
         width: 400px;
         border-radius: 6px;
+        border-width: 2px;
+        border-color: $dark;
         height: 1.75rem;
+
+        @media screen and (max-width: 533px) {
+
+            input,
+            textarea {
+                width: 200px;
+            }
+
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        height: 200px;
     }
 }
 
@@ -26,22 +45,27 @@
     margin-bottom: 2rem;
     color: $dark;
     text-transform: uppercase;
+
     .form-container {
         display: flex;
         flex-direction: column;
         width: 40%;
         margin: auto;
+
         label {
             margin-bottom: 0.5rem;
+
             &:last-child {
                 margin-bottom: 2rem;
             }
         }
+
         input:not(:last-child) {
             height: 1.75rem;
             border-radius: $bo-radius;
             margin-bottom: 0.5rem;
         }
+
         button {
             width: 200px;
             margin: auto;

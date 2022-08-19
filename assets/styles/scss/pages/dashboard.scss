@@ -13,7 +13,10 @@
 
         @media screen and (max-width: 950px) {
             flex-direction: column;
-            padding: 0;
+            padding-block: 2rem;
+            padding-inline: 0;
+            text-align: center;
+            line-height: 1.75;
         }
 
         .profile-picture {}
@@ -30,7 +33,7 @@
             padding: 2rem;
 
             p {
-                font-style: italic;
+                font-weight: bolder;
             }
         }
 
@@ -45,38 +48,6 @@
 
     .article-table {
         overflow-x: auto;
-
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            margin: auto;
-
-            th {
-                background-color: $light;
-                border: 1px solid;
-                padding: 0.75rem;
-                border-collapse: collapse;
-            }
-
-            td {
-                text-align: center;
-                border: 1px solid;
-                padding: 0.75rem;
-                border-collapse: collapse;
-
-                a {
-                    margin-left: 0;
-                }
-            }
-
-            i {
-                padding: 0.75rem;
-
-                &:hover {
-                    color: $accent;
-                }
-            }
-        }
     }
 
 }

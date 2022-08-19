@@ -73,12 +73,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $profilePicture;
+    private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user", orphanRemoval = true)
+     */
+    private $comment;
 
     public function __construct()
     {
         $this->lessons = new ArrayCollection();
         $this->article = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
 
@@ -269,14 +275,44 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getProfilePicture(): ?string
+    public function getImage(): ?string
     {
-        return $this->profilePicture;
+        return $this->image;
     }
 
-    public function setProfilePicture(?string $profilePicture): self
+    public function setImage(?string $image): self
     {
-        $this->profilePicture = $profilePicture;
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
 
         return $this;
     }

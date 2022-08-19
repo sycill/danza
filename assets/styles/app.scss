@@ -5,7 +5,8 @@
 @import "scss/components/_forms.scss";
 @import "scss/components/_buttons.scss";
 @import "scss/components/_swiper.scss";
-@import "scss/components/card.scss";
+@import "scss/components/_card.scss";
+@import "scss/components/_table.scss";
 @import "scss/layouts/_footer.scss";
 @import "scss/pages/create_article.scss";
 @import "scss/pages/_home.scss";
@@ -16,12 +17,6 @@
 @import "scss/pages/_contact.scss";
 @import "scss/pages/_lessons.scss";
 @import "scss/pages/dashboard.scss";
-
-
-*,
-::before,
-::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import "scss/pages/super_admin.scss";
+@import "scss/pages/show_article.scss";
+@import "scss/pages/edit_article.scss";

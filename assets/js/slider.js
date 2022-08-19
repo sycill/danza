@@ -3,11 +3,11 @@ let etape = 0;
 let nbr_img = img.length;
 let next = document.querySelector('.next');
 let back = document.querySelector('.back');
+const slider = document.querySelector('.slider');
 
 next.addEventListener('click', nextSlide);
 back.addEventListener('click', previousSlide);
 
-console.log(nbr_img);
 
 function removeActiveImg(){   
     for(let i = 0; i < nbr_img; i++){
@@ -32,7 +32,7 @@ function previousSlide(){
     }
     removeActiveImg();
     img[etape].classList.add('active');
-    console.log(nbr_img);
+    // console.log(nbr_img);
 
 }
 

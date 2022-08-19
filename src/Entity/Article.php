@@ -6,14 +6,11 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File as File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
  * @ORM\HasLifecycleCallbacks()
- * @Vich\Uploadable
  */
 
 class Article
@@ -53,7 +50,7 @@ class Article
 
 
     /**
-     * @ORM\Column(type="datetime_immutable", nullable="true")
+     * @ORM\Column(type="datetime", nullable="true")
      */
     private $updated_at;
 
@@ -68,16 +65,16 @@ class Article
     private $imageName;
 
     /**
-     * @Vich\UploadableField(mapping="uploaded_images", fileNameProperty="imageName")
-     * *
-     * @var File|null
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article")
      */
-    private $imageFile;
+    private $comments;
+
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->updatedAt = new \DateTime();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,30 +205,40 @@ class Article
         return $this->imageName;
     }
 
-    public function setImageName(?string $imageName): self
+    public function setImageName($imageName): self
     {
         $this->imageName = $imageName;
 
         return $this;
     }
 
-
     /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @return Collection<int, Comment>
      */
-    public function setImageFile(?File $imageFile = null): void
+    public function getComments(): Collection
     {
-        $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
-        }
+        return $this->comments;
     }
 
-    public function getImageFile(): ?File
+    public function addComment(Comment $comment): self
     {
-        return $this->imageFile;
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getArticle() === $this) {
+                $comment->setArticle(null);
+            }
+        }
+
+        return $this;
     }
 }

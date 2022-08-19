@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	<div class="user-infos">
+		<h3>Salut {{ app.user.username}}!</h3>
+		<a href="{{ path('app_logout')}}">
+			<i class="fas fa-sign-out-alt"></i>
+		</a>	
+	</div>
+
 	<h1>Créer une catégorie</h1>
 	<div class="categoryForm">
 		{{form_start(categoryForm)}}

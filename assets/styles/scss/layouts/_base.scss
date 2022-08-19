@@ -1,6 +1,13 @@
-html {
+// RESET
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Poppins Regular";
     color: $dark;
+
 }
 
 article {
@@ -12,19 +19,23 @@ article {
 
 a {
     text-decoration: none;
-    text-transform: uppercase;
+    cursor: pointer;
 }
 
 h1,
-h2 {
+h2,
+h3 {
     text-align: center;
     text-transform: uppercase;
     margin-block: 2rem;
 }
 
+ul {
+    list-style: none;
+}
 
-i {
-    padding: 2rem;
+strong {
+    font-family: "Poppins Bold";
 }
 
 section {
@@ -35,4 +46,11 @@ section {
 .divider {
     border-top: 3px solid rgb(207, 207, 207);
     margin-inline: 20rem;
+}
+
+.border {
+    border-top: 3px solid $dark;
+    width: 160px;
+    margin: 1rem auto;
+
 }

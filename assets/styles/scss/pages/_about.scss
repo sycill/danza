@@ -1,60 +1,135 @@
+// #about {
+//     margin: 10rem;
+//     display: flex;
 
+//     .directrice {
+//         p {
+//             text-align: justify;
+//         }
 
-#about{
-    padding: 2rem;
-    .directrice{
-            p{
-                text-align: justify;
-            }
-            .vittoria{
-                display: flex;
-                gap: 2rem;
-                img{
-                    display: inline;
-                width: 20%;
-                // Faire un cover-fit pour l'image afin de la rendre rectangulaire mais à l'horizontale
-            }
-            }
+.dir-img {
+    display: flex;
+    gap: 2rem;
+
+    img {
+        display: inline;
+        width: 40%;
+        margin: auto;
+        // Faire un cover-fit pour l'image afin de la rendre rectangulaire mais à l'horizontale
     }
 }
-#teachers{
+
+//         .dir-content {}
+//     }
+// }
+
+#teachers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+    .card-container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
+        flex-wrap: wrap;
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 70%;
+            flex: 1 1 21rem;
+            margin: 10px 20px;
+            // border: 1px solid #ececec;
+            margin: 20px 20px;
+            border-radius: $bo-radius;
+            box-shadow: $bo-shadow;
+
+            .card-img {
+                width: 100%;
+                height: auto;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+            }
+
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                padding-block: 1.5rem;
+
+                p {
+                    padding: 30px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                a {
+                    i {
+                        margin: auto;
+                    }
+                }
+
+                .btn {
+                    margin: auto;
+                }
+
+            }
+        }
+    }
+
     // flex-wrap: wrap;
     // margin-inline: 1rem;
     // h2{
-        //     display: inline;
-        // }
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 90%;
-        // margin: 0 auto;
-        height: 100%;
-        gap: 3%;
+    //     display: inline;
+    // }
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // max-width: 90%;
+    // margin: auto;
+    // // margin: 0 auto;
+    // height: 100%;
+    // gap: 3%;
 
-        .cards{
-            // overflow: hidden;
-            padding: 0.75rem;
-            width: 30%;
-            text-align: center;
-            border: 1px solid $light;
-            border-radius: $bo-radius;
-            box-shadow: $bo-shadow;
-            margin: 0 auto;
-            height: auto;
-            margin-bottom: 2rem;
-            .cards-img{
-                width: 100%;
-                height: auto;
-            }
-            .cards-body{
-                padding: 2rem;
-            }
-            .cards-title{
-                text-align: center;
-            }
-        }
+    // display: flex;
+    //     // overflow: hidden;
+    //     padding: 0.75rem;
+    //     width: 30%;
+    //     text-align: center;
+    //     border: 1px solid $light;
+    //     border-radius: $bo-radius;
+    //     box-shadow: $bo-shadow;
+    //     margin: 0 auto;
+    //     height: auto;
+    //     margin-bottom: 2rem;
+
+    //     .cards-img {
+    //         width: 100%;
+    //         height: auto;
+    //     }
+
+    //     .cards-body {
+    //         padding: 2rem;
+    //     }
+
+    //     .cards-title {
+    //         text-align: center;
+    //     }
 }
 
+.flexible {
+    flex-grow: 1;
+}

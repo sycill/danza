@@ -8,17 +8,18 @@
 {% block body %}
 	<article id="about">
 		<div class="directrice">
-			<div class="vittoria">
+			<div class="dir-img">
 				<img src="{{ asset('build/img/vittoria.jpg')}}" alt="Vittoria Mansini, directrice de l'école Danza"/>
-				<div>
-					<h2>Notre directrice</h2>
-					<p>En 1990, Vittoria Mansini a créé Danza, son école de danse, loin de sa Naples natale.
-																																																																																																																																																																																																																																																																																																																																														Elle y enseigne la danse classique et les claquettes en tant que professeure et gère son affaire d'une main de maître.
-																																																																																																																																																																																																																																																																																																																																															Ces dernières années, elle a laissé le flambeau à des jeunes hommes et femmes talentueux qui ont la même passion
-																																																																																																																																																																																																																																																																																																																																														et envie de transmettre. Bien que Vittoria n'enseigne plus, on peut toujours la croisée dans un couloir, en train de
-																																																																																																																																																																																																																																																																																																																																														parler à ses élèves.
-					</p>
-				</div>
+			</div>
+			<div class="dir-content">
+				<h2>Notre directrice</h2>
+				<p>En 1990, Vittoria Mansini a créé <strong>Danza</strong>, son école de danse, loin de sa Naples natale.</p>
+				<p>Elle y enseigne la <strong>danse classique</strong> et les claquettes en tant que professeure et gère son affaire d'une main de maître.</p>
+				<p>Ces dernières années, elle a laissé le flambeau à des jeunes hommes et femmes talentueux qui ont la même passion
+				et envie de transmettre. </p>
+				<p>Bien que Vittoria n'enseigne plus, on peut toujours la croiser dans un couloir, en train de
+				parler à ses élèves.
+				</p>
 			</div>
 		</div>
 	</article>
@@ -26,24 +27,22 @@
 	<article
 		id="teachers">
 		{# <div class="container"> #}
-		{% for teacher in teachers %}
-			{# <div class="grid"> #}
-			<div class="cards">
-				<div class="cards-img">
-					<img src="" alt="Photo de {{ teacher.username }}">
-				</div>
-				<div class="cards-body">
-					<h2 class="cards-title">{{ teacher.firstname }}
-						{{teacher.lastname}}</h2>
-					{# <h3>{{teacher.lesson.title}}</h3> #}
-					<a href="{{path('teacher', {id: teacher.id})}}">
-						<i class="fas fa-user"></i>
-					</a>
-				</div>
-			</div>
-			{# </div> #}
-		{% endfor %}
-		{# </div> #}
-
+		<div class="card-container">
+					{% for teacher in teachers %}
+						{# <div class="grid"> #}
+						<div class="card-content">
+							<div class="card-img">
+								<img src="" alt="Photo de {{ teacher.username }}">
+							</div>
+							<div class="card-body">
+								<h2 class="card-title">{{ teacher.firstname }}
+									{{teacher.lastname}}</h2>
+								{# <h3>{{teacher.lesson.title}}</h3> #}
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium temporibus eius, blanditiis quam amet excepturi voluptatem? Error ipsa natus ab, laboriosam aliquam praesentium pariatur voluptatibus placeat, at omnis quibusdam qui!</p>
+								<a href="#" class="btn">Qui es-tu ?</a>
+							</div>
+						</div>
+					{% endfor %}
+		</div>
 	</article>
 {% endblock %}

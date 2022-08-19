@@ -1,19 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{ articles.title }}
+	{{ article.title }}
 	|
 	{{ site_name }}
 {% endblock %}
 
 {% block body %}
 	<section id="show-art">
-		<div class="container">
+		<div class="article-container">
 			<h2>
-				{{ articles.title }}
+				{{ article.title }}
 			</h2>
-			<img
-			src="{{ asset('article_images/') }}{{ articles.imageName }}" alt="{{ articles.imageName }}">
+			<img src="{{ asset('/') }}{{ article.imageName }}" alt="{{ article.imageName }}">
+			<p class="contenu">{{ article.content|raw }}</p>
 		</div>
+
+		<h3>Écrire un commentaire :</h3>
+		<div class="leave-comment">
+			{{ form(cmForm)}}
+			{{ form_rest(cmForm)}}
+			{{ form_end(cmForm)}}
+		</div>
+
+		<div class="comments">
+			{% for comment in article.comments %}
+				<div class="comment">
+					<i class="fas fa-user"></i>
+					<p>{{ comment.user.username }}</p>
+					<p>{{ comment.createdAt|format_datetime('short', 'none', locale='fr')}}</p>
+					<p>{{ comment.comment }}</p>
+					<div class="divider"></div>				
+				</div>
+			{% endfor %}
+		</div>
+
 	</section>
 {% endblock %}

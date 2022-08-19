@@ -1,19 +1,5 @@
 .contactForm {
     margin-block: 5rem;
+    margin: 2rem;
 
-    #form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid $accent;
-        border-radius: $bo-radius;
-        padding-inline: 2rem;
-    }
-
-    #form_message {
-        min-width: 400px;
-        min-height: 200px;
-        resize: none;
-    }
 }

@@ -20,6 +20,9 @@ class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $article = $builder->getData();
+        // On récupère notre article
+        // Les données liées à ce formulaire, seront celles de l'article
         $builder
             ->add('title',  TextType::class, ['label' => 'Titre :'])
             ->add('description', CKEditorType::class, ['label' => 'Description :'])
@@ -27,33 +30,39 @@ class ArticleType extends AbstractType
             ->add('categories', EntityType::class, [
                 'class' => Category::class, 'label' => 'Catégorie(s) :',
                 'multiple' => true,
-                'expanded' => false,
+                'expanded' => true,
                 'by_reference' => false,
-                'choice_label' => 'title'
+                // 'choice_label' => 'title'
             ])
-            // ->add('image', VichFileType::class)
-            // ->add('updated_at', DateTimeType::class)
+
             ->add('user', EntityType::class, [
                 'class' => User::class, 'label' => 'Professeur :', 'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('t')->orderBy('t.username', 'ASC');
+                    return $er->createQueryBuilder('t')->where('t.roles LIKE :role ')
+                        ->setParameter('role', '%"' . 'ROLE_ADMIN' . '"%')
+                        ->orderBy('t.username', 'ASC');
                 },
                 'choice_label' => 'username'
             ])
+
+
             ->add(
-                'imageName',
+                'imageFile',
                 FileType::class,
+                // array('data_class' => null),
                 [
-                    'label' => 'Image',
+                    'label' => 'Image : ',
+                    'mapped' => false,
+                    'required' => $article->getImageName() ? false : true,
+                    // Si il y a une image dans l'article = false, si il n'y a pas d'image = true
                     'constraints' => [
                         new Image(
                             [
                                 'mimeTypesMessage' => 'Veuillez soumettre une image',
-                                'maxSize' => '400000',
-                                'maxSizeMessage' => 'Votre image fait {{ size }} {{ suffix }}. Ma limite est de {{ limit }} {{ suffix }}'
+                                'maxSize' => '1M',
+                                'maxSizeMessage' => 'Votre image fait {{ size }} {{ suffix }}. La limite est de {{ limit }} {{ suffix }}'
                             ]
                         )
                     ]
-
                 ]
             )
             ->add('submit', SubmitType::class, ['label' => 'Enregistrer']);

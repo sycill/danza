@@ -29,32 +29,105 @@ footer {
                 width: 70%;
                 margin: auto;
             }
+
+            @media screen and (max-width: 450px) {
+                display: none;
+            }
+
         }
 
         .info {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            // margin-bottom: 1.5rem;
             // @media screen and (max-width: 596px) {
             //     margin-bottom: ;
             // }
+
+            img {
+                margin-top: 2rem;
+            }
+
+            h3 {
+                margin-top: 0;
+                margin-bottom: 1.25rem;
+            }
 
             p {
                 line-height: 1.5rem;
             }
 
+            a {
+                margin-right: 0.5rem;
+                font-size: 1.5rem;
+            }
+
+            &.r-sociaux {
+                margin-bottom: 1.25rem;
+            }
         }
     }
 
-    .lien {
+    .links {
         display: flex;
-        gap: 2rem;
         justify-content: center;
-        align-items: center;
+        padding-block: 1rem;
+
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            @media screen and (max-width: 610px) {
+                flex-direction: column;
+            }
+
+            li {
+
+                &:not(:last-child) {
+                    padding-right: 1rem;
+                    border-right: 1px solid $dark;
+
+                    @media screen and (max-width: 610px) {
+                        border-right: 0;
+                    }
+                }
+
+            }
+
+        }
 
         p {
             display: block;
             margin-top: $ma-top;
+            padding-inline: 1rem;
             color: $dark;
+
+            &::after {
+                content: '|';
+            }
+
+            &:not(:last-child)::after {
+                content: '';
+            }
+
+            @media screen and (max-width: 610px) {
+                margin-top: 0;
+                border: 0;
+            }
         }
     }
+}
+
+
+.confidentialite {
+    text-align: justify;
+    margin-block: 2rem;
+}
+
+.mentions {
+    text-align: justify;
+    margin-block: 2rem;
+
 }

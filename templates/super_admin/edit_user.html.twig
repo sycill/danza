@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        <article id="edit-user">
+            <div class="user-form">
+                {{ form(userForm) }}
+                {{ form_rest(userForm) }}
+                {{ form_start(userForm) }}
+            </div>
+        </article>
+    {% endblock %}

@@ -52,27 +52,27 @@
 .cards {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-
-    @media screen and (max-width: 966px) {
-        flex-wrap: wrap;
-    }
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     .card {
-        width: 30%;
-        margin: 2rem 1rem;
+        flex: 0 1 30%;
+        // margin: 2rem 1rem;
         padding-bottom: 3rem;
         border: 1px solid rgb(218, 218, 218);
         box-shadow: 5px 7px 7px rgb(218, 218, 218);
         position: relative;
 
-        @media screen and (max-width:1048px) {
-            width: 40%;
+        @media screen and (max-width:1023px) {
+            flex: 0 1 40%;
         }
 
-        @media screen and (max-width: 813px) {
-            width: 80%;
+        @media screen and (max-width: 730px) {
+            flex: 0 1 80%;
+        }
+
+        @media screen and (max-width: 520px) {
+            flex: 0 1 100%;
         }
 
         .card-img {
@@ -89,8 +89,24 @@
         .card-body {
             padding: 1rem;
 
+            +a {
+                color: $dark;
+            }
+
+            p {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
             .btn {
                 margin: 1rem auto;
+            }
+
+            .flexible {
+                flex-grow: 1;
             }
         }
     }
@@ -99,10 +115,13 @@
 .lesson-cards {
     display: flex;
     gap: 1rem;
+    justify-content: center;
+    align-items: center;
 
     .lesson-card {
         h2 {
             margin-block: 1.5rem;
+            color: $accent;
         }
 
         border: 1px solid black;
@@ -111,6 +130,28 @@
 
         ul {
             list-style: none;
+        }
+    }
+}
+
+.pages {
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-block: 1rem;
+
+        .page-item {
+            list-style: none;
+
+            a,
+            i {
+                &:hover {
+                    color: $accent;
+                    transition: $transition;
+                }
+            }
         }
     }
 }

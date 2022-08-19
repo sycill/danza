@@ -1,0 +1,30 @@
+.articleForm {
+    border: solid 1px #f7efef;
+    padding: 1.25rem;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px 3px lightgrey;
+    margin: 2rem auto;
+    width: 80%;
+
+    form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        label {
+            display: block;
+            text-align: center;
+            margin-block: 0.75rem;
+        }
+
+        #article_imageFile {
+            display: flex;
+
+            input#file-upload-button {
+                display: block;
+                margin: auto;
+            }
+        }
+
+    }
+}

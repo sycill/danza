@@ -20,33 +20,157 @@
 			</p>
 		</div>
 	</article>
-	<article
-		id="lessons">
-		{# {% for lesson in lessons %} #}
-		{% for lesson in lessons%}
+	<article id="lessons">
 			<div class="cardz">
 				<div class="img-container">
 					<img
-					src="" alt="Image de la leçon" />
+					src="{{ asset('build/img/classique.020da6ad.jpg')}}" alt="Photo du professeur" />
 				</div>
 				<div class="content">
 					<h3>
-						Prof :
-						{{ lesson.user.username }}</h3>
+						Prof : Romuald Saint-Eloi
+						</h3>
+					<p>Tous niveaux</p>
+					<p>Prix : 15€</p>
+					<p>
+						<h4>Description :
+						</h4>
+						<p> Cours débutant à avancé</p>
+					</p>
+					<h4>
+						Horaires :
+					</h4>
+					<a href="#" class="btn">Plus</a>
+					<div class="flexible"></div>
+				</div>
+			</div>
+
+			<div class="cardz">
+				<div class="img-container">
+					<img
+					src="{{ asset('build/img/hip-hop.a1390038.jpg')}}" alt="Photo du professeur" />
+				</div>
+				<div class="content">
+					<h3>
+						Prof : Ava Nguema
+						</h3>
 					<p>Tous niveaux</p>
 					<p>Prix :
-						{{ lesson.price }}</p>
+						</p>
 					<p>
-						<strong>Description :
-						</strong>
+						<h4>Description :
+						</h4>
+						<p> Cours débutant à avancé</p>
 					</p>
 					<p>
-						{{ lesson.description|striptags}}
+						Horaires :
 					</p>
-				</div>
+					<a href="#" class="btn">Plus</a>
+					<div class="flexible"></div>
 
-				<a href="{{path('lessons_details', {id: lesson.id})}}" class="btn">Découvrir</a>
+				</div>
 			</div>
-		{% endfor %}
+
+			<div class="cardz">
+				<div class="img-container">
+					<img
+					src="{{ asset('build/img/street-jazz.cc121e09.jpg')}}" alt="Photo du professeur" />
+				</div>
+				<div class="content">
+					<h3>
+						Prof : Eoghan Gallagher
+						</h3>
+					<p>Tous niveaux</p>
+					<p>Prix :
+						</p>
+					<p>
+						<h4>Description :
+						</h4>
+						<p> Cours débutant à avancé</p>
+					</p>
+					<p>
+						Horaires :
+					</p>
+					<a href="#" class="btn">Plus</a>
+					<div class="flexible"></div>
+				</div>
+			</div>
+
+			<div class="cardz">
+				<div class="img-container">
+					<img
+					src="{{ asset('build/img/moderne-jazz-min.b4f1234a.jpg')}}" alt="Photo du professeur" />
+				</div>
+				<div class="content">
+					<h3>
+						Prof : Astrid Karlsson
+						</h3>
+					<p>Tous niveaux</p>
+					<p>Prix :
+						</p>
+					<p>
+						<h4>Description :
+						</h4>
+						<p> Cours débutant à avancé</p>
+					</p>
+					<p>
+						Horaires :
+					</p>
+					<a href="#" class="btn">Plus</a>
+					<div class="flexible"></div>
+				</div>
+			</div>
+
+			<div class="cardz">
+				<div class="img-container">
+					<img
+					src="{{ asset('build/img/orientale.d4d0d303.jpg')}}" alt="Photo du professeur" />
+				</div>
+				<div class="content">
+					<h3>
+						Prof : Francisca Romero
+						</h3>
+					<p>Tous niveaux</p>
+					<p>Prix :
+						</p>
+					<p>
+						<h4>Description :
+						</h4>
+						<p> Cours débutant à avancé</p>
+					</p>
+					<p>
+						Horaires :
+					</p>
+					<a href="#" class="btn">Plus</a>
+					<div class="flexible"></div>
+				</div>
+			</div>
+
+			<div class="cardz">
+				<div class="img-container">
+					<img
+					src=" {{ asset('build/img/salsa.jpg')}}" alt="Photo du professeur" />
+				</div>
+				<div class="content">
+					<h3>
+						Prof : Alma Ruiz
+						</h3>
+					<p>Tous niveaux</p>
+					<p>Prix :
+						</p>
+					<p>
+						<h4>Description :
+						</h4>
+						<p> Cours débutant à avancé</p>
+					</p>
+					<p>
+						Horaires :
+						
+					</p>
+					<a href="#" class="btn">Plus</a>
+					<div class="flexible"></div>
+				</div>
+			</div>
+
 	</article>
 {% endblock %}

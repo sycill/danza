@@ -1,0 +1,23 @@
+#super-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    @media screen and (max-width: 930px) {
+        flex-direction: column;
+    }
+
+    .teacher-form {
+        button#user_submit {
+            margin-bottom: 0;
+        }
+    }
+
+
+    .teachers {
+
+        line-height: 2;
+
+    }
+}

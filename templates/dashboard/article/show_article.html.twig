@@ -3,8 +3,9 @@
 {% block body%}
 <div class="content">
     <h1>{{ article.title}}</h1>
-    <h2>{{ article.user}}</h2>
-    <p>{{ article.description}}</p>
-    <p>{{ article.content}}</p>
+        <img src="{{ asset('/public/article_images/ {{ article.imageName}}')}}" alt="{{ article.imageName }}">
+    <h3>{{ article.user}}</h3>
+    <p>{{ article.description|striptags}}</p>
+    <p>{{ article.content|striptags}}</p>
 </div>
 {% endblock body%}

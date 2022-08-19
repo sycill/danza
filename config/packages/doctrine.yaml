@@ -16,6 +16,11 @@ doctrine:
                 prefix: 'App\Entity'
                 alias: App
 
+twig:
+  default_path: '%kernel.project_dir%/templates'
+  paths:
+    '%kernel.project_dir%/public/build': styles
+
 when@test:
     doctrine:
         dbal:

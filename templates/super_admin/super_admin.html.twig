@@ -1,9 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body%}
-	<div class="teacherForm">
+        <div class="user-infos">
+            <h3> Bonjour {{ app.user.username}} ! &#128513</h3>
+            <a href="{{ path('app_logout')}}">
+                <span><i class="fas fa-sign-out-alt"></i></span>
+            </a>	
+		</div>
+<article id="super-admin">
+
+		<div class="teacher-form">
+		<h3>Ajouter un professeur :</h3>
 		{{form_start(teacherForm)}}
 		{{form_rest(teacherForm)}}
 		{{form_end(teacherForm)}}
 	</div>
+	<div class="teachers">
+		<h3>Professeurs</h3>
+		<table>
+			<tr>
+				<th>NOM</th>
+				<th>PRÉNOM</th>
+				<th>METTRE À JOUR</th>
+				<th>SUPPRIMER</th>
+			</tr>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.firstName }}</td> 
+					<td>{{ user.lastName}}</td> 
+					<td>
+						<a href="{{ path('edit_user', {'id': user.id}) }}">
+							<i class="fas fa-pen"></i>
+						</a>
+					</td>
+					<td>
+						<a href="">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>				
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</article>
 {% endblock %}

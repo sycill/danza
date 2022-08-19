@@ -10,7 +10,7 @@
 	<h2>Catégories</h2>
 		<p>Si vous vous sentez d'humeur aventurière :</p>
 			{% for category in categories %}
-				<a href="{{ path('article_categories', {id: category.id})}}">{{ category.title}}</a>
+				<a href="{{ path('article_categories', {id: category.id})}}"># {{ category.title}}</a>
 			{% endfor %}
 	</article>
 	<hr class="divider">
@@ -18,26 +18,23 @@
 		<h1>Nos articles les plus récents:</h1>
 		<div class="cards">
 			{% for article in articles %}
-				{# #personnages #}
-				
 					<div class="card">
-					{#  .personnage #}
 						<div class="card-img">
-							<img src="{{ asset('article_images/') }}{{ article.imageName }}" alt="{{ article.imageName }}">
-							{# <img src="{{ vich_uploader_asset(article, 'imageFile')}}" alt="{{ article.imageName}}"> #}
+							<img src="{{ article.imageName }}">
 						</div>
 						<div class="card-body">
 							{% for category in article.categories %}
-								<a href="{{ path('article_categories', {id: category.id}) }}"> {{ category }} </a>
+								<a href="{{ path('article_categories', {id: category.id}) }}">  # {{ category }} </a>
 							{% endfor %}
-							<h2 class="card-title">{{ article.title }}</h2>
-							<p>{{ article.description|striptags|slice(0,50)}}</p>
-							<a href="{{path('show_articles', {id: article.id})}}" class="btn">Lire la suite</a>
+							<h3 class="card-title">{{ article.title }}</h3>
+							<p class="description">{{ article.description|raw}}</p>
+							<a href="{{path('show_articles', {id: article.id})}}" class="btn">Lire</a>
 							<p>by</p>
 							<a href="{{ path('teacher', { id: article.user.id })}}">{{ article.user.username }}</a>
 							<p>Publié le
 								{{ article.date|format_datetime('long', 'none', locale='fr')}}</p>
 						</div>
+						<div class="flexible"></div>
 					</div>
 			{% endfor %}
 		</div>
@@ -56,4 +53,31 @@
 			{% endfor %}
 		</div>
 	</article>
+{% if isPaginated %}
+	<div class="pages row mt-5">
+		<nav aria-label="Page navigation example" class="col">
+			<ul class="pagination">
+				{% if page != 1 %}
+					<li class="page-item">
+						<a class="page-link" href="{{ path('app_article', {page: page - 1, nbr: nbr}) }}">
+							<i class="fas fa-chevron-left"></i>
+						</a>
+					</li>
+				{% endif %}
+				{% for i in range(1, nbPage) %}
+					<li class="page-item">
+						<a class="page-link" href="{{ path('app_article', {page: i, nbr: nbr}) }}">{{ i }}</a>
+					</li>
+				{% endfor %}
+				{% if page != nbPage %}
+					<li class="page-item">
+						<a class="page-link" href="{{ path('app_article', {page: page + 1, nbr: nbr}) }}">
+							<i class="fas fa-chevron-right"></i>
+						</a>
+					</li>
+				{% endif %}
+			</ul>
+		</nav>
+	</div>
+{% endif %}
 {% endblock %}

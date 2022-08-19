@@ -3,7 +3,9 @@
 	{# <aside class="sidebar"></aside> #}
 	<div class="user-infos">
 		<h3>Salut {{ app.user.username}}!</h3>
-		<a href="{{ path('app_logout')}}">Se déconnecter</a>
+		<a href="{{ path('app_logout')}}">
+			<i class="fas fa-sign-out-alt"></i>
+		</a>	
 	</div>
 	<article id="dashboard">
 		<h2>
