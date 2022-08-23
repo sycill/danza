@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    {% apply inline_css %}
-        <h1 class="test">Bienvenue sur Danza </h1>
-        <p>Nous avons bien reçu votre message. Nous vous répondrons bientôt.</p>
-    {% endapply %}
-</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire de contact{% endblock %}
+
+{% block body %}
+    <h2>N'hésite pas à poser ta question !</h2>
+    <div class="contactForm">
+        {{ form(contactForm) }}
+    </div>
+
+{% endblock %}

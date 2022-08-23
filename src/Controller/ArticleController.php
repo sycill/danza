@@ -8,11 +8,13 @@ use App\Entity\Article;
 use App\Entity\Comment;
 use App\Entity\Category;
 use App\Form\CommentType;
+use Gedmo\Mapping\Annotation;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ArticleController extends AbstractController
@@ -46,6 +48,7 @@ class ArticleController extends AbstractController
         }
 
         // $comment = $cmRep->findAll();
+        // $this->generateUrl('/article', array('slug' => $article->getSlug()), UrlGeneratorInterface::ABSOLUTE_URL);
         return $this->render('article/show.html.twig', ['article' => $article, 'cmForm' => $cmForm->createView()]);
     }
 
@@ -60,6 +63,7 @@ class ArticleController extends AbstractController
     {
         $repository = $doctrine->getRepository(Category::class);
         $category = $repository->find($id);
+
         return $this->render('article/categorie.html.twig', ['category' => $category]);
     }
 

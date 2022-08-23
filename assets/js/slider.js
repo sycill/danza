@@ -1,5 +1,5 @@
 let img = document.getElementsByClassName('img-slider');
-let etape = 0;
+let step = 0;
 let nbr_img = img.length;
 let next = document.querySelector('.next');
 let back = document.querySelector('.back');
@@ -16,32 +16,32 @@ function removeActiveImg(){
 }
 
 function nextSlide(){
-    etape++;
-    if(etape >= nbr_img){
-        etape = 0;
+    step++;
+    if(step >= nbr_img){
+        step = 0;
     }
     removeActiveImg();
-    img[etape].classList.add('active');
+    img[step].classList.add('active');
 
 }
 
 function previousSlide(){
-    etape --;
-    if(etape < 0){
-        etape = nbr_img - 1;
+    step --;
+    if(step < 0){
+        step = nbr_img - 1; 
     }
     removeActiveImg();
-    img[etape].classList.add('active');
+    img[step].classList.add('active');
     // console.log(nbr_img);
 
 }
 
 setInterval(() => {
-    etape++;
-    if(etape >= nbr_img){
-        etape = 0;
+    step++;
+    if(step >= nbr_img){
+        step = 0;
     }
     removeActiveImg();
-    img[etape].classList.add('active');
+    img[step].classList.add('active');
 
 }, 3000)

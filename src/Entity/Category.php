@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\FormTypeInterface;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
@@ -34,6 +35,13 @@ class Category
      * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="categories")
      */
     private $article;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slug;
+    // On demande à Gedmo de générer le slug en se basant sur le titre
 
     public function __construct()
     {
@@ -97,5 +105,10 @@ class Category
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 }
