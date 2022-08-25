@@ -8,14 +8,15 @@
 {% block body %}
 	<article class="categories">
 	<h2>Catégories</h2>
+	<div class="border"></div>
 		<p>Si vous vous sentez d'humeur aventurière :</p>
 			{% for category in categories %}
 				<a href="{{ path('article_categories', {id: category.id})}}"># {{ category.title}}</a>
 			{% endfor %}
 	</article>
-	<hr class="divider">
 	<article id="blog">
 		<h1>Nos articles les plus récents:</h1>
+		<div class="border"></div>
 		<div class="cards">
 			{% for article in articles %}
 					<div class="card">
@@ -36,20 +37,6 @@
 						</div>
 						<div class="flexible"></div>
 					</div>
-			{% endfor %}
-		</div>
-	</article>
-	<hr class="divider">
-	<article>
-		<h2> Articles par discipline :</h2>
-		<div class="lesson-cards">
-			{% for lesson in lessons %}
-				<div class="lesson-card">
-					<h3>{{ lesson.title}}</h3>
-					<ul>
-						<li></li>
-					</ul>
-				</div>
 			{% endfor %}
 		</div>
 	</article>

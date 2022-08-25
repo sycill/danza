@@ -82,25 +82,20 @@ class DashboardController extends AbstractController
         return $this->render('super_admin/edit_user.html.twig', ['userForm' => $userForm->createView()]);
     }
 
-    public function deleteUser()
-    {
-    }
 
     #[Route('/admin/create_article', name: 'create_article')]
 
-    public function createArticle(Request $request, EntityManagerInterface $em, Uploader $uploader)
+    public function createArticle(Request $request, EntityManagerInterface $em)
     {
         $article = new Article();
         $user = $this->getUser();
         // On crée un nouvel article qu'on récupère depuis use App\Entity\Article;
-        $articleForm = $this->createFormBuilder()
-            ->getForm();
-        $articleForm = $this->createForm(ArticleType::class, $article);
+        $createArtForm = $this->createForm(ArticleType::class, $article);
         // on va lui spécifier de la data qui est l'objet article qui est vide à ce stade.
-        $articleForm->handleRequest($request);
-        if ($articleForm->isSubmitted() && $articleForm->isValid()) {
+        $createArtForm->handleRequest($request);
+        if ($createArtForm->isSubmitted() && $createArtForm->isValid()) {
             /** @var UploadedFile */
-            $image = $articleForm->get('imageFile')->getData();
+            $image = $createArtForm->get('imageFile')->getData();
             $folder = $this->getParameter('image.folder');
             $extension = $image->guessExtension() ?? 'bin';
             $filename = bin2hex(random_bytes(10)) . '.' . $extension;
@@ -115,7 +110,7 @@ class DashboardController extends AbstractController
             return $this->redirectToRoute('admin');
         }
 
-        return $this->render('dashboard/article/add_articles.html.twig', ['articleForm' => $articleForm->createView()]);
+        return $this->render('dashboard/article/create_article.html.twig', ['createArtForm' => $createArtForm->createView()]);
     }
 
     #[Route('/admin/edit_article/{id}', name: 'article_edit')]

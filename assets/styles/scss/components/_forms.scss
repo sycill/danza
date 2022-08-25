@@ -3,17 +3,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid $accent;
-    border-radius: $bo-radius;
     margin: auto;
     padding: 2rem;
-    box-shadow: $bo-shadow;
 
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid lightgrey;
+        box-shadow: $bo-shadow;
+        border-radius: $bo-radius;
+        padding: 2rem;
+        margin-bottom: 2rem;
+
+        div {
+            #user_submit {
+                margin: 2rem auto;
+                text-align: center;
+                display: inline-block;
+            }
+
+        }
+
+    }
 
     label {
         display: block;
         margin-right: 5px;
         text-transform: uppercase;
+    }
+
+    ul {
+        li {
+            color: $accent;
+        }
     }
 
     input,
@@ -38,6 +61,12 @@
         resize: vertical;
         height: 200px;
     }
+
+    a {
+        &:hover {
+            color: $accent;
+        }
+    }
 }
 
 // Login Form
@@ -51,6 +80,12 @@
         flex-direction: column;
         width: 40%;
         margin: auto;
+        border: 1px solid lightgrey;
+        border-radius: $bo-radius;
+        padding: 2rem;
+        box-shadow: $bo-shadow;
+
+
 
         label {
             margin-bottom: 0.5rem;

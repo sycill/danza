@@ -19,6 +19,8 @@
             line-height: 1.75;
         }
 
+
+
         .profile-picture {}
 
         .admin-photo {
@@ -26,6 +28,11 @@
 
             i {
                 font-size: 5rem;
+
+                @media screen and (max-width: 630px) {
+                    font-size: 4rem;
+                }
+
             }
         }
 
@@ -34,6 +41,12 @@
 
             p {
                 font-weight: bolder;
+            }
+
+            .admin-email {
+                @media screen and (max-width: 573px) {
+                    display: none;
+                }
             }
         }
 
@@ -44,10 +57,63 @@
         display: flex;
         justify-content: center;
         gap: 2rem;
+
+        .btn {
+            @media screen and (max-width: 671px) {
+                font-size: 0.5rem;
+
+            }
+
+        }
     }
 
     .article-table {
         overflow-x: auto;
+
+        @media screen and (max-width: 693px) {
+            font-size: 0.5rem;
+        }
+
+        @media screen and (max-width: 463px) {
+            font-size: 0.4rem;
+        }
+
+        @media screen and (max-width: 463px) {
+            font-size: 0.3rem;
+        }
+
+        .tooltip {
+            position: relative;
+
+            /* making the .tooltip span a container for the tooltip text */
+            &::before {
+                content: attr(data-text);
+                /* here's the magic */
+                position: absolute;
+                /* vertically center */
+                top: 50%;
+                transform: translateY(100%);
+
+                /* move to right */
+                right: 100%;
+                margin-left: 15px;
+                /* and add a small left margin */
+
+                /* basic styles */
+                width: 200px;
+                padding: 10px;
+                border-radius: 10px;
+                background: rgba(0, 0, 0, 0.441);
+                color: #fff;
+                text-align: center;
+                display: none;
+
+            }
+
+            &:hover::before {
+                display: block;
+            }
+        }
     }
 
 }

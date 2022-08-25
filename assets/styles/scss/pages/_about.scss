@@ -6,29 +6,43 @@
 //         p {
 //             text-align: justify;
 //         }
+#about {
+    margin-inline: 0;
 
-.dir-img {
-    display: flex;
-    gap: 2rem;
+    .dir-img {
+        display: flex;
+        gap: 2rem;
 
-    img {
-        display: inline;
-        width: 40%;
-        margin: auto;
-        // Faire un cover-fit pour l'image afin de la rendre rectangulaire mais à l'horizontale
+        img {
+            display: inline;
+            max-width: 60%;
+            margin: auto;
+        }
+    }
+
+    .dir-content {
+        padding-inline: 2rem;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+
+        }
     }
 }
 
-//         .dir-content {}
-//     }
-// }
+
+
+
 
 #teachers {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 1rem;
 
     .card-container {
 

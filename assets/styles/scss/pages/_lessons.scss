@@ -1,3 +1,9 @@
+#alacarte {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 #lessons {
     display: flex;
     flex-direction: row;
@@ -11,15 +17,29 @@
     }
 
     .cardz {
+        display: flex;
+        flex-direction: column;
         // background-image: url('/assets/img/cours_hip_hop.webp');
         margin-left: 1rem;
-        width: 30%;
+        width: 40%;
         margin: 2rem 1rem;
         padding-bottom: 3rem;
         border: 1px solid $light;
         box-shadow: $bo-shadow;
         position: relative;
-        text-align: center;
+        text-align: justify;
+
+        @media screen and (max-width: 1010px) {
+            width: 40%;
+        }
+
+        @media screen and (max-width: 670px) {
+            width: 70%;
+        }
+
+        @media screen and (max-width: 405px) {
+            width: 90%;
+        }
 
         // min-height: 400px;
         // padding-inline: 2rem;
@@ -27,6 +47,11 @@
         // img{
         //     object-fit: cover;
         // }
+        ul {
+            ul {
+                margin-left: 1rem;
+            }
+        }
 
         .img-container {
             width: 100%;

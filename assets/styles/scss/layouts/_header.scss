@@ -26,6 +26,7 @@ header {
                 top: 50%;
             }
 
+
             @media screen and (max-width: 300px) {
                 display: none;
             }
@@ -74,7 +75,7 @@ header {
 
                 @media screen and (max-width: 1020px) {
                     flex-direction: column;
-                    gap: 3rem;
+                    gap: 2rem;
                 }
 
                 li {

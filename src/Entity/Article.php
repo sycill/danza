@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -24,16 +24,29 @@ class Article
     private $id;
 
     /**
+     * @Assert\Length(
+     *     min = 50,
+     *     max = 70,
+     *     minMessage = "Ce titre est trop court. Rallongez-le un peu.",
+     *     maxMessage = "Ce titre est trop long. Raccourcissez-le un peu."
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
-    /**
+    /**     
+     * @Assert\Length(
+     *     min = 50,
+     *     minMessage = "Votre article est trop court. Étoffez-le un peu."
+     * )
+
+     * @Assert\NotBlank(message = "Le contenu de l'article ne peut pas être vide.")
      * @ORM\Column(type="text")
      */
     private $content;
 
     /**
+     * @Assert\NotBlank(message = "Le contenu de l'article ne peut pas être vide.")
      * @ORM\Column(type="string", length=255)
      */
     private $description;
@@ -60,7 +73,8 @@ class Article
      */
     private $user;
 
-    /**
+    /**     
+     * @Assert\NotBlank(message = "Vous devez choisir une image.")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageName;

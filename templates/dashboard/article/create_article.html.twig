@@ -1,0 +1,57 @@
+{% extends 'base.html.twig'%}
+{% block body %}
+	{# <aside class="sidebar"></aside> #}
+	<div class="user-infos">
+		<h3>Salut {{ app.user.username}}!</h3>
+		<a href="{{ path('app_logout')}}">
+			<i class="fas fa-sign-out-alt"></i>
+		</a>	
+	</div>
+	<article id="dashboard">
+		<h2>
+			Créer un article</h2>
+		<div class="article">
+			<div class="create_article">
+				{{form_start(createArtForm)}}
+					{{form_label(createArtForm.title)}}
+					<div class="form-error">
+						{% if form_errors(createArtForm.title)%}
+							<i class="fas fa-exclamation-circle"></i>
+							{{form_errors(createArtForm.title)}}
+						{% endif %}
+					</div>
+					{{form_widget(createArtForm.title)}}
+					{{form_label(createArtForm.description)}}
+					<div class="form-error">
+					{% if form_errors(createArtForm.description)%}
+						<i class="fas fa-exclamation-circle"></i>
+						{{form_errors(createArtForm.description)}}
+					{% endif %}
+					</div>
+					{{form_widget(createArtForm.description)}}
+					{{form_label(createArtForm.content)}}
+					<div class="form-error">
+					{% if form_errors(createArtForm.content)%}
+						<i class="fas fa-exclamation-circle"></i>
+						{{form_errors(createArtForm.content)}}
+					{% endif %}
+					</div>
+					{{form_widget(createArtForm.content)}}
+					{{form_label(createArtForm.categories)}}
+					{{form_widget(createArtForm.categories)}}
+					{{form_label(createArtForm.user)}}
+					{{form_widget(createArtForm.user)}}
+					{{form_label(createArtForm.imageFile)}}
+					<div class="form-error">
+						{% if form_errors(createArtForm.imageFile)%}
+							<i class="fas fa-exclamation-circle"></i>
+							{{form_errors(createArtForm.imageFile)}}
+						{% endif %}
+					</div>
+
+					{{form_widget(createArtForm.imageFile)}}
+				{{form_end(createArtForm)}}
+			</div>
+		</div>
+	</article>
+{% endblock  %}

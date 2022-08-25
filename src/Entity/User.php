@@ -24,10 +24,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     /**
+     * @Assert\Email(message = "Ceci n\'est pas un email valide")
+     * @Assert\NotBlank(message = "Veuillez renseigner un email")
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    #[Assert\Email(message: 'Ceci n\'est pas un email valide')]
-    #[Assert\NotBlank(message: 'Veuillez renseigner un email')]
     private $email;
 
     /**
@@ -36,28 +36,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
 
     /**
+     * @Assert\Length(min = 6, minMessage = "Veuillez choisir un mot de passe d\'au moins 6 caractères")
+     * @Assert\Regex(pattern = "?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]", match = false, message = "Veuillez utiliser au moins 1 caractère spécial")
+     * @Assert\Regex(pattern = "?=.*[a-z]", match = false, message = "Veuillez utiliser au moins une lettre minuscule")
+     * @Assert\Regex(pattern = "?=.*[A-Z]", match = false, message = "Veuillez utiliser au moins une lettre majuscule")
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    #[Assert\Length(min: 6, minMessage: 'Veuillez choisir un mot de passe d\'au moins 6 caractères')]
     private $password;
 
-    /**
+    /**     
+     * @Assert\NotBlank(message = "Veuillez renseigner un pseudo")
      * @ORM\Column(type="string", length=255)
      */
     private $username;
 
     /**
+     * @Assert\NotBlank(message = "Veuillez renseigner un prénom")
      * @ORM\Column(type="string", length=255)
      */
-    #[Assert\NotBlank(message: 'Veuillez renseigner un prénom')]
 
     private $first_name;
 
-    /**
+    /**     
+     * @Assert\NotBlank(message = "Veuillez renseigner un nom de famille")
      * @ORM\Column(type="string", length=255)
      */
-    #[Assert\NotBlank(message: 'Veuillez renseigner un nom de famille')]
     private $last_name;
 
     /**

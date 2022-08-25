@@ -20,7 +20,7 @@
 			<div class="admin-body">
 				<p>{{app.user.firstname}}</p>
 				<p>{{app.user.lastname}}</p>
-				<p>{{app.user.email}}</p>
+				<p class="admin-email">{{app.user.email}}</p>
 			</div>
 		</div>
 		<div class="links">
@@ -51,8 +51,8 @@
 							{% endfor  %}
 							</td>
 							<td>
-								<a href="{{ path('article_edit', {'id': article.id}) }}"><i class="fas fa-pen"></i></a>
-								<a href="{{ path('article_delete', {'id':article.id}) }}"><i class="fas fa-trash"></i></a>
+								<a class="tooltip" data-text="Modifier l'article"  href="{{ path('article_edit', {'id': article.id}) }}"><i class="fas fa-pen" ></i></a>
+								<a class="tooltip" data-text="Supprimer l'article"  href="{{ path('article_delete', {'id':article.id}) }}"><i class="fas fa-trash"></i></a>
 							</td>
 						{% set i = i + 1 %}
 						</tr>

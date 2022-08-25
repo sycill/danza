@@ -10,7 +10,12 @@
 	<h2> INSCRIPTION</h2>
 	<section id="form">
 		{{form_start(form)}}
-		{{form_rest(form)}}
+			{{form_label(form.first_name)}}
+			{{form_widget(form.first_name)}}
+			{{form_label(form.last_name)}}
+			{{form_widget(form.last_name)}}
+
+
 		{{form_end(form)}}
 		<a href="{{ path('app_login')}}">Vous avez déjà un compte ?</a>
 	</section>

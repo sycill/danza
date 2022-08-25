@@ -1,4 +1,6 @@
 .user-infos {
+    display: flex;
+    justify-content: center;
 
     h3,
     a {
@@ -16,7 +18,7 @@
 
     .article {
 
-        .article-form {
+        .create_article {
             // display: flex;
             // flex-direction: column;
             // justify-content: center;
@@ -41,6 +43,23 @@
                 .cke_inner,
                 .cke_reset {
                     border-radius: $bo-radius;
+                }
+
+                .form-error {
+                    margin-block: 1rem;
+                    display: flex;
+                    align-items: center;
+
+                    i {
+                        color: $accent;
+                        margin-right: 1rem;
+                    }
+
+                    ul {
+                        li {
+                            color: $accent;
+                        }
+                    }
                 }
 
                 label {
